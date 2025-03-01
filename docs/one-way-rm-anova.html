@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>One-way RM-ANOVA | Robuste Methoden</title>
+  <meta name="description" content="Maximize Accuracy and Power of Research" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="One-way RM-ANOVA | Robuste Methoden" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Images/Cover.png" />
+  <meta property="og:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="github-repo" content="wgruber/RobustMethods" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="One-way RM-ANOVA | Robuste Methoden" />
+  
+  <meta name="twitter:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="twitter:image" content="/Images/Cover.png" />
+
+<meta name="author" content="Walter Gruber" />
+
+
+<meta name="date" content="2025-03-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="two-dependent-means.html"/>
+<link rel="next" href="regression-models.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#roadmap"><i class="fa fa-check"></i>Roadmap</a></li>
+</ul></li>
+<li class="part"><span><b>PART I: GLM-Assumptions</b></span></li>
+<li class="chapter" data-level="" data-path="critical-assumptions.html"><a href="critical-assumptions.html"><i class="fa fa-check"></i>Critical Assumptions</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html"><i class="fa fa-check"></i>Normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#contaminated-normal-distributions"><i class="fa fa-check"></i>Contaminated Normal distributions</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#issues-with-normality"><i class="fa fa-check"></i>Issues with normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#residuals"><i class="fa fa-check"></i>Residuals</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#test-statistics"><i class="fa fa-check"></i>Test statistics</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#confidence-intervalls"><i class="fa fa-check"></i>Confidence intervalls</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html"><i class="fa fa-check"></i>Myth and misconceptions about robustness</a>
+<ul>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html#are-glms-robust"><i class="fa fa-check"></i>Are GLM’s robust?</a></li>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html#validity-of-central-limit-theorem"><i class="fa fa-check"></i>Validity of central limit theorem</a></li>
+</ul></li>
+<li class="part"><span><b>PART II: Robust Methods</b></span></li>
+<li class="chapter" data-level="" data-path="definition-of-robust.html"><a href="definition-of-robust.html"><i class="fa fa-check"></i>Definition of Robust</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html"><i class="fa fa-check"></i>Solutions to violated assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#alternative-estimators"><i class="fa fa-check"></i>Alternative estimators</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#transformation-of-data"><i class="fa fa-check"></i>Transformation of data</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#nonparametric-tests"><i class="fa fa-check"></i>Nonparametric tests</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#robust-methods"><i class="fa fa-check"></i>Robust methods</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#adjusting-the-standard-errors"><i class="fa fa-check"></i>Adjusting the standard errors</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html"><i class="fa fa-check"></i>Selected Robust measures of location</a>
+<ul>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#trimmed-mean"><i class="fa fa-check"></i>Trimmed mean</a></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#winsorized-mean"><i class="fa fa-check"></i>Winsorized mean</a>
+<ul>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#winsorization-round-up"><i class="fa fa-check"></i>Winsorization Round-Up</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#m-estimators"><i class="fa fa-check"></i>M-estimators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="measures-of-scale.html"><a href="measures-of-scale.html"><i class="fa fa-check"></i>Measures of Scale</a></li>
+<li class="part"><span><b>PART III: R-Examples</b></span></li>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i>R-Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html#other-packages-in-r"><i class="fa fa-check"></i>Other Packages in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html"><i class="fa fa-check"></i>Two independent means</a>
+<ul>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html#standard-t-test"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html#robust-t-test"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i>One-way ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html#standard-anova"><i class="fa fa-check"></i>Standard ANOVA</a></li>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html#robust-one-way-anova"><i class="fa fa-check"></i>Robust One-way ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html"><i class="fa fa-check"></i>Two dependent means</a>
+<ul>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#check-assumptions"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#standard-t-test-1"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#robust-t-test-1"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html"><i class="fa fa-check"></i>One-way RM-ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#check-assumptions-1"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#standard-rm-anova"><i class="fa fa-check"></i>Standard RM-ANOVA</a></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#robust-anova"><i class="fa fa-check"></i>Robust ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html"><i class="fa fa-check"></i>Regression Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#check-data"><i class="fa fa-check"></i>Check Data</a></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#standard-linear-model"><i class="fa fa-check"></i>Standard Linear Model</a></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#robust-linear-model-rlm"><i class="fa fa-check"></i>Robust Linear Model (RLM)</a>
+<ul>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#rlm-extended"><i class="fa fa-check"></i>RLM-Extended</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>PART IV: Summary</b></span></li>
+<li class="chapter" data-level="" data-path="conclusions-and-recommendations.html"><a href="conclusions-and-recommendations.html"><i class="fa fa-check"></i>Conclusions and recommendations</a>
+<ul>
+<li class="chapter" data-level="" data-path="conclusions-and-recommendations.html"><a href="conclusions-and-recommendations.html#recommendations"><i class="fa fa-check"></i>Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenzen.html"><a href="referenzen.html"><i class="fa fa-check"></i>Referenzen</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Robuste Methoden</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="one-way-rm-anova" class="section level1 unnumbered hasAnchor">
+<h1>One-way RM-ANOVA<a href="one-way-rm-anova.html#one-way-rm-anova" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The data used in this example is the same as for the dependent t-Test (i.e.: <em>FieldLawson2003.csv</em>)</p>
+<div id="check-assumptions-1" class="section level2 unnumbered hasAnchor">
+<h2>Check Assumptions<a href="one-way-rm-anova.html#check-assumptions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To compare the latencies for all three boxes, we could use a repeated measure ANOVA function such as the <code>aov()</code>, or as an alternative the <code>rstatix::anova_test()</code> function. But before we do the analysis, we should check for possible violations of the assumptions:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="one-way-rm-anova.html#cb32-1" tabindex="-1"></a>  <span class="co"># Assumption check</span></span>
+<span id="cb32-2"><a href="one-way-rm-anova.html#cb32-2" tabindex="-1"></a>  fieldLong          <span class="ot">&lt;-</span> fieldLong[,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb32-3"><a href="one-way-rm-anova.html#cb32-3" tabindex="-1"></a>  fieldLong<span class="sc">$</span>id       <span class="ot">&lt;-</span> <span class="fu">factor</span>(fieldLong<span class="sc">$</span>id)</span>
+<span id="cb32-4"><a href="one-way-rm-anova.html#cb32-4" tabindex="-1"></a>  fieldLong<span class="sc">$</span>InfoType <span class="ot">&lt;-</span> <span class="fu">factor</span>(fieldLong<span class="sc">$</span>InfoType)</span>
+<span id="cb32-5"><a href="one-way-rm-anova.html#cb32-5" tabindex="-1"></a>  <span class="fu">pander</span>(fieldLong <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(InfoType) <span class="sc">%&gt;%</span> <span class="fu">identify_outliers</span>(value))</span></code></pre></div>
+<table style="width:74%;">
+<colgroup>
+<col width="15%" />
+<col width="11%" />
+<col width="11%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">InfoType</th>
+<th align="center">id</th>
+<th align="center">value</th>
+<th align="center">is.outlier</th>
+<th align="center">is.extreme</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">zNone</td>
+<td align="center">bku59</td>
+<td align="center">2.729</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">zPos</td>
+<td align="center">wdd2</td>
+<td align="center">2.574</td>
+<td align="center">TRUE</td>
+<td align="center">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="center">zPos</td>
+<td align="center">inl37</td>
+<td align="center">1.491</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">zPos</td>
+<td align="center">vxp18</td>
+<td align="center">1.008</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="center">zPos</td>
+<td align="center">pap44</td>
+<td align="center">1.166</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">zThreat</td>
+<td align="center">tat36</td>
+<td align="center">4.2</td>
+<td align="center">TRUE</td>
+<td align="center">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="center">zThreat</td>
+<td align="center">gtu30</td>
+<td align="center">3.085</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="one-way-rm-anova.html#cb33-1" tabindex="-1"></a>  <span class="fu">pander</span>(<span class="fu">rbind</span>(<span class="fu">shapiro_test</span>(fieldWide<span class="sc">$</span>zThreat), </span>
+<span id="cb33-2"><a href="one-way-rm-anova.html#cb33-2" tabindex="-1"></a>               <span class="fu">shapiro_test</span>(fieldWide<span class="sc">$</span>zPos), </span>
+<span id="cb33-3"><a href="one-way-rm-anova.html#cb33-3" tabindex="-1"></a>               <span class="fu">shapiro_test</span>(fieldWide<span class="sc">$</span>zNone)))</span></code></pre></div>
+<table style="width:61%;">
+<colgroup>
+<col width="27%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">variable</th>
+<th align="center">statistic</th>
+<th align="center">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">fieldWide$zThreat</td>
+<td align="center">0.8894</td>
+<td align="center">0.0006053</td>
+</tr>
+<tr class="even">
+<td align="center">fieldWide$zPos</td>
+<td align="center">0.8463</td>
+<td align="center">4.207e-05</td>
+</tr>
+<tr class="odd">
+<td align="center">fieldWide$zNone</td>
+<td align="center">0.9047</td>
+<td align="center">0.001741</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="one-way-rm-anova.html#cb34-1" tabindex="-1"></a>  bxp         <span class="ot">&lt;-</span> <span class="fu">ggboxplot</span>(fieldLong,</span>
+<span id="cb34-2"><a href="one-way-rm-anova.html#cb34-2" tabindex="-1"></a>                           <span class="at">x =</span> <span class="st">&quot;InfoType&quot;</span>, </span>
+<span id="cb34-3"><a href="one-way-rm-anova.html#cb34-3" tabindex="-1"></a>                           <span class="at">y =</span> <span class="st">&quot;value&quot;</span>, </span>
+<span id="cb34-4"><a href="one-way-rm-anova.html#cb34-4" tabindex="-1"></a>                           <span class="at">add =</span> <span class="st">&quot;point&quot;</span>)</span>
+<span id="cb34-5"><a href="one-way-rm-anova.html#cb34-5" tabindex="-1"></a>  <span class="fu">print</span>(bxp)</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/ANOVA-RM-Assumption-1.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="one-way-rm-anova.html#cb35-1" tabindex="-1"></a>  qqp         <span class="ot">&lt;-</span> <span class="fu">ggqqplot</span>(fieldLong,</span>
+<span id="cb35-2"><a href="one-way-rm-anova.html#cb35-2" tabindex="-1"></a>                          <span class="st">&quot;value&quot;</span>,</span>
+<span id="cb35-3"><a href="one-way-rm-anova.html#cb35-3" tabindex="-1"></a>                          <span class="at">facet.by =</span> <span class="st">&quot;InfoType&quot;</span>)</span>
+<span id="cb35-4"><a href="one-way-rm-anova.html#cb35-4" tabindex="-1"></a>  <span class="fu">print</span>(qqp)</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/ANOVA-RM-Assumption-2.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="standard-rm-anova" class="section level2 unnumbered hasAnchor">
+<h2>Standard RM-ANOVA<a href="one-way-rm-anova.html#standard-rm-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Since ANOVA’s are special forms of linear models, we could also use the <code>lm()</code> function. The difference between these functions is the output. The <code>aov()</code> returns the table of <span class="math inline">\(F\)</span>-statistics, whereas <code>lm()</code> returns the specific parameter estimates, significance tests and overall fit statistics.</p>
+<p>The formula (model) of the <code>aov()</code> is specified as:</p>
+<center>
+<strong>Value ~ InfoType + Error(id/InfoType)</strong>
+</center>
+<p><u>In words:</u> we predict the <em>Value</em> from the variable <em>InfoType</em> plus an <em>error term</em> for that variable that is nested within the variable <em>id</em>. It is the error term that tells the function that it is a repeated measures design (because the error term for the predictor variable is nested within cases).</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="one-way-rm-anova.html#cb36-1" tabindex="-1"></a>  <span class="co">#Non-robust</span></span>
+<span id="cb36-2"><a href="one-way-rm-anova.html#cb36-2" tabindex="-1"></a>  <span class="fu">pander</span>(<span class="fu">summary</span>(<span class="fu">aov</span>(value <span class="sc">~</span> InfoType <span class="sc">+</span> <span class="fu">Error</span>(id<span class="sc">/</span>InfoType), <span class="at">data =</span> fieldLong)))</span></code></pre></div>
+<table style="width:86%;">
+<colgroup>
+<col width="23%" />
+<col width="6%" />
+<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Df</th>
+<th align="center">Sum Sq</th>
+<th align="center">Mean Sq</th>
+<th align="center">F value</th>
+<th align="center">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Residuals</strong></td>
+<td align="center">42</td>
+<td align="center">51.33</td>
+<td align="center">1.222</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>InfoType</strong></td>
+<td align="center">2</td>
+<td align="center">8.839</td>
+<td align="center">4.42</td>
+<td align="center">7.103</td>
+<td align="center">0.001412</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Residuals1</strong></td>
+<td align="center">84</td>
+<td align="center">52.26</td>
+<td align="center">0.6222</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="one-way-rm-anova.html#cb37-1" tabindex="-1"></a>  <span class="co"># Alternativ to aov(): rstatix::anova_test()</span></span>
+<span id="cb37-2"><a href="one-way-rm-anova.html#cb37-2" tabindex="-1"></a>  res.anova  <span class="ot">&lt;-</span> <span class="fu">pander</span>(<span class="fu">anova_test</span>(<span class="at">data =</span> fieldLong,</span>
+<span id="cb37-3"><a href="one-way-rm-anova.html#cb37-3" tabindex="-1"></a>                                  <span class="at">dv =</span> value,</span>
+<span id="cb37-4"><a href="one-way-rm-anova.html#cb37-4" tabindex="-1"></a>                                  <span class="at">wid =</span> id,</span>
+<span id="cb37-5"><a href="one-way-rm-anova.html#cb37-5" tabindex="-1"></a>                                  <span class="at">within =</span> InfoType))</span></code></pre></div>
+<p>The results show means which are significantly different with latencies after threat information being significantly longer than for positive or no information. The results of the follow-up-test are shown below:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="one-way-rm-anova.html#cb38-1" tabindex="-1"></a>  <span class="fu">pander</span>(<span class="fu">pairwise.t.test</span>(fieldLong<span class="sc">$</span>value, fieldLong<span class="sc">$</span>InfoType, <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>, <span class="at">paired =</span> T))</span></code></pre></div>
+<ul>
+<li><p><strong>method</strong>: paired t tests</p></li>
+<li><p><strong>data.name</strong>: fieldLong<span class="math inline">\(value and fieldLong\)</span>InfoType</p></li>
+<li><p><strong>p.value</strong>:</p>
+<table style="width:49%;">
+<colgroup>
+<col width="19%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">zNone</th>
+<th align="center">zPos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>zPos</strong></td>
+<td align="center">1</td>
+<td align="center">NA</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>zThreat</strong></td>
+<td align="center">0.01922</td>
+<td align="center">0.005809</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>p.adjust.method</strong>: bonferroni</p></li>
+</ul>
+<!-- end of list -->
+</div>
+<div id="robust-anova" class="section level2 unnumbered hasAnchor">
+<h2>Robust ANOVA<a href="one-way-rm-anova.html#robust-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For the robust test we will use the <code>rmanovab()</code> function and get the post hoc tests with <code>pairdepb()</code>. The option <code>tr</code> controls the amount of trim (and the default of 20% is advised). For the bootstrap-option the default is set to <code>nboot = 599</code> (sufficient for now, but it is common to use <code>nboot = 1000</code> or <code>nboot = 2000</code>).</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="one-way-rm-anova.html#cb39-1" tabindex="-1"></a>  <span class="co">#Robust</span></span>
+<span id="cb39-2"><a href="one-way-rm-anova.html#cb39-2" tabindex="-1"></a>  <span class="fu">pander</span>(<span class="fu">rmanovab</span>(fieldLong<span class="sc">$</span>value, fieldLong<span class="sc">$</span>InfoType, fieldLong<span class="sc">$</span>id, <span class="at">tr =</span> <span class="fl">0.2</span>, <span class="at">nboot =</span> <span class="dv">599</span>))</span></code></pre></div>
+<ul>
+<li><strong>test</strong>: <em>6.751</em></li>
+<li><strong>crit</strong>: <em>3.439</em></li>
+<li><strong>call</strong>: <code>rmanovab(y = fieldLong$value, groups = fieldLong$InfoType, blocks = fieldLong$id,      tr = 0.2, nboot = 599)</code></li>
+</ul>
+<!-- end of list -->
+<p>The robust test results also show a significant difference between trimmed mean approach times to the three animals, <span class="math inline">\(F_t = 6.75, \ p &lt; .050\)</span>. The results of the robust follow-up test show the difference between trimmed means (<span class="math inline">\(\hat{\psi}\)</span>), the associated bootstrap confidence interval, the test of this difference, the critical value of the test and whether the trimmed means are significantly different (at <span class="math inline">\(\alpha = 0.05\)</span>):</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="one-way-rm-anova.html#cb40-1" tabindex="-1"></a>  <span class="fu">pander</span>(<span class="fu">pairdepb</span>(fieldLong<span class="sc">$</span>value, fieldLong<span class="sc">$</span>InfoType, fieldLong<span class="sc">$</span>id, <span class="at">tr =</span> <span class="fl">0.2</span>, <span class="at">nboot =</span> <span class="dv">599</span>))</span></code></pre></div>
+<ul>
+<li><p><strong>comp</strong>:</p>
+<table style="width:94%;">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="13%" />
+<col width="15%" />
+<col width="15%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Group</th>
+<th align="center">Group</th>
+<th align="center">psihat</th>
+<th align="center">ci.lower</th>
+<th align="center">ci.upper</th>
+<th align="center"> </th>
+<th align="center">crit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">0.5232</td>
+<td align="center">0.1599</td>
+<td align="center">0.8866</td>
+<td align="center">3.389</td>
+<td align="center">2.353</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">0.4046</td>
+<td align="center">0.02792</td>
+<td align="center">0.7812</td>
+<td align="center">2.528</td>
+<td align="center">2.353</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">-0.1187</td>
+<td align="center">-0.4294</td>
+<td align="center">0.192</td>
+<td align="center">-0.8989</td>
+<td align="center">2.353</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>fnames</strong>: <em>zThreat</em>, <em>zPos</em> and <em>zNone</em></p></li>
+<li><p><strong>call</strong>: <code>pairdepb(y = fieldLong$value, groups = fieldLong$InfoType, blocks = fieldLong$id,      tr = 0.2, nboot = 599)</code></p></li>
+</ul>
+<!-- end of list -->
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="one-way-rm-anova.html#cb41-1" tabindex="-1"></a>  <span class="do">###############################################</span></span></code></pre></div>
+<p>We would report that the trimmed mean difference in latency between the threat box and the positive, <span class="math inline">\(\hat{\psi} = 0.52 \ [0.14,0.90]\)</span>, and no information, <span class="math inline">\(\hat{\psi} = 0.40 \ [0.01,0.80]\)</span><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> boxes were significant. The trimmed mean difference between the positive and the no information box was not, <span class="math inline">\(\hat{\psi} = -0.12 \ [-0.44,0.90]\)</span>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="8">
+<li id="fn8"><p>be cautios with the interpretation of an effect if the <span class="math inline">\(CI\)</span> has an upper, or lower limit so close to Null!<a href="one-way-rm-anova.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="two-dependent-means.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regression-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

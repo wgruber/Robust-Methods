@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Selected Robust measures of location | Robuste Methoden</title>
+  <meta name="description" content="Maximize Accuracy and Power of Research" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Selected Robust measures of location | Robuste Methoden" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Images/Cover.png" />
+  <meta property="og:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="github-repo" content="wgruber/RobustMethods" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Selected Robust measures of location | Robuste Methoden" />
+  
+  <meta name="twitter:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="twitter:image" content="/Images/Cover.png" />
+
+<meta name="author" content="Walter Gruber" />
+
+
+<meta name="date" content="2025-03-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="solutions-to-violated-assumptions.html"/>
+<link rel="next" href="measures-of-scale.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#roadmap"><i class="fa fa-check"></i>Roadmap</a></li>
+</ul></li>
+<li class="part"><span><b>PART I: GLM-Assumptions</b></span></li>
+<li class="chapter" data-level="" data-path="critical-assumptions.html"><a href="critical-assumptions.html"><i class="fa fa-check"></i>Critical Assumptions</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html"><i class="fa fa-check"></i>Normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#contaminated-normal-distributions"><i class="fa fa-check"></i>Contaminated Normal distributions</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#issues-with-normality"><i class="fa fa-check"></i>Issues with normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#residuals"><i class="fa fa-check"></i>Residuals</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#test-statistics"><i class="fa fa-check"></i>Test statistics</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#confidence-intervalls"><i class="fa fa-check"></i>Confidence intervalls</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html"><i class="fa fa-check"></i>Myth and misconceptions about robustness</a>
+<ul>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html#are-glms-robust"><i class="fa fa-check"></i>Are GLM’s robust?</a></li>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html#validity-of-central-limit-theorem"><i class="fa fa-check"></i>Validity of central limit theorem</a></li>
+</ul></li>
+<li class="part"><span><b>PART II: Robust Methods</b></span></li>
+<li class="chapter" data-level="" data-path="definition-of-robust.html"><a href="definition-of-robust.html"><i class="fa fa-check"></i>Definition of Robust</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html"><i class="fa fa-check"></i>Solutions to violated assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#alternative-estimators"><i class="fa fa-check"></i>Alternative estimators</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#transformation-of-data"><i class="fa fa-check"></i>Transformation of data</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#nonparametric-tests"><i class="fa fa-check"></i>Nonparametric tests</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#robust-methods"><i class="fa fa-check"></i>Robust methods</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#adjusting-the-standard-errors"><i class="fa fa-check"></i>Adjusting the standard errors</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html"><i class="fa fa-check"></i>Selected Robust measures of location</a>
+<ul>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#trimmed-mean"><i class="fa fa-check"></i>Trimmed mean</a></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#winsorized-mean"><i class="fa fa-check"></i>Winsorized mean</a>
+<ul>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#winsorization-round-up"><i class="fa fa-check"></i>Winsorization Round-Up</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#m-estimators"><i class="fa fa-check"></i>M-estimators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="measures-of-scale.html"><a href="measures-of-scale.html"><i class="fa fa-check"></i>Measures of Scale</a></li>
+<li class="part"><span><b>PART III: R-Examples</b></span></li>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i>R-Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html#other-packages-in-r"><i class="fa fa-check"></i>Other Packages in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html"><i class="fa fa-check"></i>Two independent means</a>
+<ul>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html#standard-t-test"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html#robust-t-test"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i>One-way ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html#standard-anova"><i class="fa fa-check"></i>Standard ANOVA</a></li>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html#robust-one-way-anova"><i class="fa fa-check"></i>Robust One-way ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html"><i class="fa fa-check"></i>Two dependent means</a>
+<ul>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#check-assumptions"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#standard-t-test-1"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#robust-t-test-1"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html"><i class="fa fa-check"></i>One-way RM-ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#check-assumptions-1"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#standard-rm-anova"><i class="fa fa-check"></i>Standard RM-ANOVA</a></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#robust-anova"><i class="fa fa-check"></i>Robust ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html"><i class="fa fa-check"></i>Regression Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#check-data"><i class="fa fa-check"></i>Check Data</a></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#standard-linear-model"><i class="fa fa-check"></i>Standard Linear Model</a></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#robust-linear-model-rlm"><i class="fa fa-check"></i>Robust Linear Model (RLM)</a>
+<ul>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#rlm-extended"><i class="fa fa-check"></i>RLM-Extended</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>PART IV: Summary</b></span></li>
+<li class="chapter" data-level="" data-path="conclusions-and-recommendations.html"><a href="conclusions-and-recommendations.html"><i class="fa fa-check"></i>Conclusions and recommendations</a>
+<ul>
+<li class="chapter" data-level="" data-path="conclusions-and-recommendations.html"><a href="conclusions-and-recommendations.html#recommendations"><i class="fa fa-check"></i>Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenzen.html"><a href="referenzen.html"><i class="fa fa-check"></i>Referenzen</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Robuste Methoden</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="selected-robust-measures-of-location" class="section level1 unnumbered hasAnchor">
+<h1>Selected Robust measures of location<a href="selected-robust-measures-of-location.html#selected-robust-measures-of-location" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Measures of location are core elements of robust methods. Such measurese are:</p>
+<ul>
+<li>Trimmend mean</li>
+<li>Winsorized mean</li>
+<li>Huber M-estimator</li>
+</ul>
+<div id="trimmed-mean" class="section level2 unnumbered hasAnchor">
+<h2>Trimmed mean<a href="selected-robust-measures-of-location.html#trimmed-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The trimmed mean discards a certain percentage at both ends of the distribution. For instance, a 20% trimmed mean cuts off 20% at the low end and 20% the high end. In R, a trimmed mean can be computed via the basic mean function by setting the trim argument accordingly. The following code also shows in which way the trimmed mean is calculated when the argument <code>trim</code> of the mean function is set to a value <span class="math inline">\(&gt; 0\)</span>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="selected-robust-measures-of-location.html#cb3-1" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">423</span>)</span>
+<span id="cb3-2"><a href="selected-robust-measures-of-location.html#cb3-2" tabindex="-1"></a>  N       <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="co"># length of sample</span></span>
+<span id="cb3-3"><a href="selected-robust-measures-of-location.html#cb3-3" tabindex="-1"></a>  M       <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># Mean of sample</span></span>
+<span id="cb3-4"><a href="selected-robust-measures-of-location.html#cb3-4" tabindex="-1"></a>  SD      <span class="ot">&lt;-</span> <span class="dv">15</span>  <span class="co"># standard deviation of sample</span></span>
+<span id="cb3-5"><a href="selected-robust-measures-of-location.html#cb3-5" tabindex="-1"></a>  TF      <span class="ot">&lt;-</span> <span class="fl">0.1</span> <span class="co"># Trim-Faktor</span></span>
+<span id="cb3-6"><a href="selected-robust-measures-of-location.html#cb3-6" tabindex="-1"></a>  <span class="co">#=== Generate Data ===</span></span>
+<span id="cb3-7"><a href="selected-robust-measures-of-location.html#cb3-7" tabindex="-1"></a>  IQ      <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> M, <span class="at">sd =</span> SD)</span>
+<span id="cb3-8"><a href="selected-robust-measures-of-location.html#cb3-8" tabindex="-1"></a>  IQ[N]   <span class="ot">&lt;-</span> <span class="dv">1240</span> <span class="co"># introduce outlier</span></span>
+<span id="cb3-9"><a href="selected-robust-measures-of-location.html#cb3-9" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">2384</span>)</span>
+<span id="cb3-10"><a href="selected-robust-measures-of-location.html#cb3-10" tabindex="-1"></a>  <span class="co">#=== Manual trim ===</span></span>
+<span id="cb3-11"><a href="selected-robust-measures-of-location.html#cb3-11" tabindex="-1"></a>  <span class="co"># IQ_Red  &lt;- sort(na.omit(IQ)) # remove NA&#39;s and sort</span></span>
+<span id="cb3-12"><a href="selected-robust-measures-of-location.html#cb3-12" tabindex="-1"></a>  IQ_Sort <span class="ot">&lt;-</span> <span class="fu">sort</span>(IQ) <span class="co"># sort Vector</span></span>
+<span id="cb3-13"><a href="selected-robust-measures-of-location.html#cb3-13" tabindex="-1"></a>  RedLgth <span class="ot">&lt;-</span> N<span class="sc">*</span>TF</span>
+<span id="cb3-14"><a href="selected-robust-measures-of-location.html#cb3-14" tabindex="-1"></a>  TInd    <span class="ot">&lt;-</span> (RedLgth<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>(N <span class="sc">-</span> RedLgth)</span>
+<span id="cb3-15"><a href="selected-robust-measures-of-location.html#cb3-15" tabindex="-1"></a>  IQ_Trim <span class="ot">&lt;-</span> IQ_Sort[TInd]</span>
+<span id="cb3-16"><a href="selected-robust-measures-of-location.html#cb3-16" tabindex="-1"></a>  <span class="co">#=== Means ===</span></span>
+<span id="cb3-17"><a href="selected-robust-measures-of-location.html#cb3-17" tabindex="-1"></a>  M1      <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(IQ, <span class="at">na.rm =</span> T), <span class="dv">3</span>)</span>
+<span id="cb3-18"><a href="selected-robust-measures-of-location.html#cb3-18" tabindex="-1"></a>  M2      <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(IQ, <span class="at">na.rm =</span> T, <span class="at">trim =</span> TF), <span class="dv">3</span>)</span>
+<span id="cb3-19"><a href="selected-robust-measures-of-location.html#cb3-19" tabindex="-1"></a>  M3      <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(IQ_Trim, <span class="at">na.rm =</span> T), <span class="dv">3</span>)</span>
+<span id="cb3-20"><a href="selected-robust-measures-of-location.html#cb3-20" tabindex="-1"></a>  Means   <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Mean =</span> M1, <span class="at">T_Mean =</span> M2, <span class="at">Man_T_Mean =</span> M3)</span>
+<span id="cb3-21"><a href="selected-robust-measures-of-location.html#cb3-21" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(Means, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">caption =</span> <span class="st">&#39;mean vs. trimmed mean&#39;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:TrimmedMean">Table 2: </span>mean vs. trimmed mean</caption>
+<thead>
+<tr class="header">
+<th align="right">Mean</th>
+<th align="right">T_Mean</th>
+<th align="right">Man_T_Mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">159.085</td>
+<td align="right">103.143</td>
+<td align="right">103.143</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="selected-robust-measures-of-location.html#cb4-1" tabindex="-1"></a>  <span class="co">#=== SDs ===</span></span>
+<span id="cb4-2"><a href="selected-robust-measures-of-location.html#cb4-2" tabindex="-1"></a>  SD1     <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sd</span>(IQ) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(IQ)), <span class="dv">3</span>)      <span class="co"># standard error</span></span>
+<span id="cb4-3"><a href="selected-robust-measures-of-location.html#cb4-3" tabindex="-1"></a>  SD2     <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sd</span>(IQ_Trim)<span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(IQ_Trim)), <span class="dv">3</span>) <span class="co"># standard error trimmed</span></span>
+<span id="cb4-4"><a href="selected-robust-measures-of-location.html#cb4-4" tabindex="-1"></a>  SD3     <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">trimse</span>(IQ, <span class="at">tr =</span> TF), <span class="dv">3</span>)      <span class="co"># standard error from WRS2</span></span>
+<span id="cb4-5"><a href="selected-robust-measures-of-location.html#cb4-5" tabindex="-1"></a>  StdDevs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">SD =</span> SD1, <span class="at">T_SD =</span> SD2, <span class="at">WRS2_SD =</span> SD3)</span>
+<span id="cb4-6"><a href="selected-robust-measures-of-location.html#cb4-6" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(StdDevs, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">caption =</span> <span class="st">&#39;Standard deviations&#39;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:TrimmedMean">Table 2: </span>Standard deviations</caption>
+<thead>
+<tr class="header">
+<th align="right">SD</th>
+<th align="right">T_SD</th>
+<th align="right">WRS2_SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">56.988</td>
+<td align="right">3.292</td>
+<td align="right">4.295</td>
+</tr>
+</tbody>
+</table>
+<p>Note that if the trimming portion is set to <span class="math inline">\(\gamma = 0.5\)</span>, the trimmed mean <span class="math inline">\(\bar{x}_t\)</span> results in the <em>median</em> <span class="math inline">\(\tilde{x}\)</span> (which by itself <em>reflects another robust location measure</em>).</p>
+</div>
+<div id="winsorized-mean" class="section level2 unnumbered hasAnchor">
+<h2>Winsorized mean<a href="selected-robust-measures-of-location.html#winsorized-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A further robust location alternative to the mean is the <em>Winsorized mean</em>.</p>
+<blockquote>
+<p>The process of giving less weight to observations in the tails of the distribution and higher weight to the ones in the center is called <em>Winsorizing</em>.</p>
+</blockquote>
+<p>Instead of computing the mean on the original distribution we compute the mean on the Winsorized distribution. Similar to the trimmed mean, the amount of Winsorizing (i.e., the <em>Winsorizing level</em>) has to be choosen a priori. The <code>WRS2</code> function to compute Windsorized means is called <code>winmean</code>.</p>
+<p>There is also a function supplied in the <code>DescTools</code> Package, the <code>DescTools::Winsorize()</code> function. The following code and output shows some examples of these estimators:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="selected-robust-measures-of-location.html#cb5-1" tabindex="-1"></a>  <span class="co">#=== Generate Data</span></span>
+<span id="cb5-2"><a href="selected-robust-measures-of-location.html#cb5-2" tabindex="-1"></a>  timevec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">92</span>, <span class="dv">19</span>, <span class="dv">101</span>, <span class="dv">58</span>, <span class="dv">1053</span>, <span class="dv">91</span>, <span class="dv">26</span>, <span class="dv">78</span>, <span class="dv">10</span>, <span class="dv">13</span>, <span class="sc">-</span><span class="dv">40</span>, <span class="dv">101</span>, </span>
+<span id="cb5-3"><a href="selected-robust-measures-of-location.html#cb5-3" tabindex="-1"></a>               <span class="dv">86</span>, <span class="dv">85</span>, <span class="dv">15</span>, <span class="dv">89</span>, <span class="dv">89</span>, <span class="dv">28</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">41</span>)</span>
+<span id="cb5-4"><a href="selected-robust-measures-of-location.html#cb5-4" tabindex="-1"></a>  <span class="co"># timevec &lt;- c( 77,  87,  88, 114, 151, 210, 219,  246, 253, 262, </span></span>
+<span id="cb5-5"><a href="selected-robust-measures-of-location.html#cb5-5" tabindex="-1"></a>  <span class="co">#              296, 299, 306, 376, 428, 515, 666, 1310, 2611)</span></span>
+<span id="cb5-6"><a href="selected-robust-measures-of-location.html#cb5-6" tabindex="-1"></a>  timevec <span class="ot">&lt;-</span> <span class="fu">sort</span>(timevec)</span>
+<span id="cb5-7"><a href="selected-robust-measures-of-location.html#cb5-7" tabindex="-1"></a>  <span class="co">#=== Trimmed Mean and SE</span></span>
+<span id="cb5-8"><a href="selected-robust-measures-of-location.html#cb5-8" tabindex="-1"></a>  TM      <span class="ot">&lt;-</span> <span class="fu">mean</span>(timevec, <span class="at">trim =</span> TF) <span class="co"># calculate the trimmed mean of the time vector</span></span>
+<span id="cb5-9"><a href="selected-robust-measures-of-location.html#cb5-9" tabindex="-1"></a>  TSE     <span class="ot">&lt;-</span> <span class="fu">trimse</span>(timevec, <span class="at">tr =</span> TF) <span class="co">#calculate the trimmed mean of the time vector</span></span>
+<span id="cb5-10"><a href="selected-robust-measures-of-location.html#cb5-10" tabindex="-1"></a>  <span class="co">#=== Winsorized Mean an SE, Median and SE of Median</span></span>
+<span id="cb5-11"><a href="selected-robust-measures-of-location.html#cb5-11" tabindex="-1"></a>  WinS_Mean <span class="ot">&lt;-</span> <span class="fu">winmean</span>(timevec, <span class="at">tr =</span> TF, <span class="at">na.rm =</span> <span class="cn">FALSE</span>) <span class="co"># winsorized mean</span></span>
+<span id="cb5-12"><a href="selected-robust-measures-of-location.html#cb5-12" tabindex="-1"></a>  WinS_SE   <span class="ot">&lt;-</span> <span class="fu">winse</span>(timevec, <span class="at">tr =</span> TF) <span class="co"># winsorized mean</span></span>
+<span id="cb5-13"><a href="selected-robust-measures-of-location.html#cb5-13" tabindex="-1"></a>  Med       <span class="ot">&lt;-</span> <span class="fu">median</span>(timevec) <span class="co"># winsorized mean</span></span>
+<span id="cb5-14"><a href="selected-robust-measures-of-location.html#cb5-14" tabindex="-1"></a>  Med_SE    <span class="ot">&lt;-</span> <span class="fu">msmedse</span>(timevec) <span class="co"># winsorized mean</span></span>
+<span id="cb5-15"><a href="selected-robust-measures-of-location.html#cb5-15" tabindex="-1"></a>  tv_DT     <span class="ot">&lt;-</span> DescTools<span class="sc">::</span><span class="fu">Winsorize</span>(timevec, </span>
+<span id="cb5-16"><a href="selected-robust-measures-of-location.html#cb5-16" tabindex="-1"></a>                                    <span class="at">val =</span> <span class="fu">quantile</span>(timevec, </span>
+<span id="cb5-17"><a href="selected-robust-measures-of-location.html#cb5-17" tabindex="-1"></a>                                                   <span class="at">probs =</span> <span class="fu">c</span>(TF, <span class="dv">1</span><span class="sc">-</span>TF),</span>
+<span id="cb5-18"><a href="selected-robust-measures-of-location.html#cb5-18" tabindex="-1"></a>                                    <span class="at">na.rm =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb5-19"><a href="selected-robust-measures-of-location.html#cb5-19" tabindex="-1"></a>  M_DT      <span class="ot">&lt;-</span> <span class="fu">mean</span>(tv_DT)</span>
+<span id="cb5-20"><a href="selected-robust-measures-of-location.html#cb5-20" tabindex="-1"></a>  <span class="co">#=== manually winsorized</span></span>
+<span id="cb5-21"><a href="selected-robust-measures-of-location.html#cb5-21" tabindex="-1"></a>  QTV              <span class="ot">&lt;-</span> <span class="fu">quantile</span>(timevec, <span class="at">probs =</span> <span class="fu">c</span>(TF, <span class="dv">1</span><span class="sc">-</span>TF))</span>
+<span id="cb5-22"><a href="selected-robust-measures-of-location.html#cb5-22" tabindex="-1"></a>  QTIndUG          <span class="ot">&lt;-</span> timevec <span class="sc">&lt;=</span> QTV[<span class="dv">1</span>]</span>
+<span id="cb5-23"><a href="selected-robust-measures-of-location.html#cb5-23" tabindex="-1"></a>  QTIndOG          <span class="ot">&lt;-</span> timevec <span class="sc">&gt;=</span> QTV[<span class="dv">2</span>]</span>
+<span id="cb5-24"><a href="selected-robust-measures-of-location.html#cb5-24" tabindex="-1"></a>  timevec[QTIndUG] <span class="ot">&lt;-</span> QTV[<span class="dv">1</span>]</span>
+<span id="cb5-25"><a href="selected-robust-measures-of-location.html#cb5-25" tabindex="-1"></a>  timevec[QTIndOG] <span class="ot">&lt;-</span> QTV[<span class="dv">2</span>]</span>
+<span id="cb5-26"><a href="selected-robust-measures-of-location.html#cb5-26" tabindex="-1"></a>  ManMeanWS        <span class="ot">&lt;-</span> <span class="fu">mean</span>(timevec)</span></code></pre></div>
+<p>Note that winsorizing is not equivalent to simply excluding (trimming) data, but is a method of censoring data. Thus a winsorized mean is not the same as a truncated mean (cf. <a href="https://en.wikipedia.org/wiki/Winsorizing" target="_blank">Winsorizing, Wikipedia</a>).</p>
+<ul>
+<li>the 10% trimmed mean is the average of the 5th to 95th percentile of the data</li>
+<li>the 90% winsorized mean sets the bottom 5% to the 5th percentile, the top 5% to the 95th percentile, and then averages the data.</li>
+</ul>
+<div id="winsorization-round-up" class="section level3 unnumbered hasAnchor">
+<h3>Winsorization Round-Up<a href="selected-robust-measures-of-location.html#winsorization-round-up" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Following round-up is taken from this <a href="https://blogs.sas.com/content/iml/2017/02/08/winsorization-good-bad-and-ugly.html" target="_blank">SAS-blog</a>:</p>
+<p><strong>The good:</strong></p>
+<ul>
+<li>The purpose of Winsorization is to “robustify” classical statistics by reducing the impact of extreme observations.</li>
+<li>If you compare a Winsorized statistic with classical statistic, you can identify variables that might contain contaminated data or are long-tailed and require special handling in models.</li>
+</ul>
+<p><strong>The ugly:</strong></p>
+<p>Modifying the data is a draconian measure. In his book <span class="citation">(<a href="#ref-Tukey.1960">Tukey 2009</a>)</span>, he says:</p>
+<p>When statisticians encounter a few extreme values in data, we are likely to think of them as <em>strays</em>, <em>wild shots</em> and to focus our attention on how normally distributed the rest of the distribution appears to be. One who does this commits two oversights:</p>
+<ul>
+<li>forgetting Winsor’s principle that <em>all distributions are normal in the middle</em>, and</li>
+<li>forgetting that the distribution relevant to statistical practice is that of the values actually provided and not of the values which ought to have been provided.</li>
+</ul>
+<p>Concluding a bit further on:</p>
+<blockquote>
+<p>Sets of observations which have been <em>de-tailed</em> by <em>over-vigorous</em> use of a rule for rejecting outliers are inappropriate, since they are not samples.</p>
+</blockquote>
+</div>
+</div>
+<div id="m-estimators" class="section level2 unnumbered hasAnchor">
+<h2>M-estimators<a href="selected-robust-measures-of-location.html#m-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A general family of robust location measures are so called <span class="math inline">\(M\)</span>-estimators (the <span class="math inline">\(M\)</span> stands for <strong>M</strong>aximum Likelihood-type”). They are based on a loss function to be minimized. Huber (1981) proposed a function <span class="citation">(cf. <a href="#ref-Wilcox.2012">Wilcox 2012</a>)</span> in which a <em>bending constant <strong>K</strong> </em> increases sensitivity to the tails of the distribution. The estimation of M-estimators is performed iteratively and implemented in the <code>mest()</code> function.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="selected-robust-measures-of-location.html#cb6-1" tabindex="-1"></a>  MWHub <span class="ot">&lt;-</span> <span class="fu">mest</span>(timevec, <span class="at">bend =</span> <span class="fl">1.28</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>) <span class="co"># Huber-estimator</span></span>
+<span id="cb6-2"><a href="selected-robust-measures-of-location.html#cb6-2" tabindex="-1"></a>  SEHub <span class="ot">&lt;-</span> <span class="fu">mestse</span>(timevec)                           <span class="co"># Huber-estimator for SE</span></span></code></pre></div>
+</div>
+</div>
+<h3>Referenzen<a href="referenzen.html#referenzen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-Tukey.1960" class="csl-entry">
+Tukey, John W. 2009. <em>A Survey of Sampling from Contaminated Distributions.</em> <span>Princeton, New Jersey: Princeton University</span>.
+</div>
+<div id="ref-Wilcox.2012" class="csl-entry">
+Wilcox, R. 2012. <em>Introduction to Robust Estimation &amp; Hypothesis Testing.</em> 3rd ed. Amsterdam, The Netherlands: <span>Elsevier</span>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="solutions-to-violated-assumptions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="measures-of-scale.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

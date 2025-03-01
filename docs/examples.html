@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Examples | Robuste Methoden</title>
+  <meta name="description" content="Maximize Accuracy and Power of Research" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Examples | Robuste Methoden" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Images/Cover.png" />
+  <meta property="og:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="github-repo" content="wgruber/RobustMethods" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Examples | Robuste Methoden" />
+  
+  <meta name="twitter:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="twitter:image" content="Images/Cover.png" />
+
+<meta name="author" content="Walter Gruber" />
+
+
+<meta name="date" content="2021-01-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-packages.html"/>
+<link rel="next" href="referenzen.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#roadmap"><i class="fa fa-check"></i>Roadmap</a></li>
+</ul></li>
+<li class="part"><span><b>PART III: R-Examples</b></span></li>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i>R-Packages</a><ul>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html#other-packages-in-r"><i class="fa fa-check"></i>Other Packages in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i>Examples</a><ul>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#two-dependent-means"><i class="fa fa-check"></i>Two dependent means</a><ul>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#check-assumptions"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#standard-t-test"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#robust-t-test"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#two-independent-means"><i class="fa fa-check"></i>Two independent means</a><ul>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#check-assumptions-1"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#standard-t-test-1"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#robust-t-test-1"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#several-dependent-means"><i class="fa fa-check"></i>Several dependent means</a><ul>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#check-assumptions-2"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#standard-anova"><i class="fa fa-check"></i>Standard ANOVA</a></li>
+<li class="chapter" data-level="" data-path="examples.html"><a href="examples.html#robust-anova"><i class="fa fa-check"></i>Robust ANOVA</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenzen.html"><a href="referenzen.html"><i class="fa fa-check"></i>Referenzen</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Robuste Methoden</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="examples" class="section level1 unnumbered">
+<h1>Examples</h1>
+<div id="two-dependent-means" class="section level2 unnumbered">
+<h2>Two dependent means</h2>
+<p>The data used in this example (<em>FieldLawson2003.csv</em>, <em>FieldLawson2003Long.csv</em>) can be downloaded from the Blackboard <span class="citation">(cf. Field <a href="#ref-FieldLawson.2003" role="doc-biblioref">2003</a>)</span>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="examples.html#cb2-1"></a>    <span class="co"># Field &amp; Lawson (2003)</span></span>
+<span id="cb2-2"><a href="examples.html#cb2-2"></a>    fieldWide &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Daten/FieldLawson2003.csv&quot;</span>)</span>
+<span id="cb2-3"><a href="examples.html#cb2-3"></a>    fieldLong &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Daten/FieldLawson2003Long.csv&quot;</span>)</span>
+<span id="cb2-4"><a href="examples.html#cb2-4"></a>    <span class="kw">pander</span>(<span class="kw">head</span>(fieldWide, <span class="dv">5</span>))</span></code></pre></div>
+<table style="width:58%;">
+<colgroup>
+<col width="9%" />
+<col width="15%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">id</th>
+<th align="center">zThreat</th>
+<th align="center">zPos</th>
+<th align="center">zNone</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">gup1</td>
+<td align="center">-0.3792</td>
+<td align="center">-1.123</td>
+<td align="center">0.0155</td>
+</tr>
+<tr class="even">
+<td align="center">wdd2</td>
+<td align="center">1.044</td>
+<td align="center">2.574</td>
+<td align="center">-0.09411</td>
+</tr>
+<tr class="odd">
+<td align="center">epr3</td>
+<td align="center">-0.1855</td>
+<td align="center">-0.001735</td>
+<td align="center">-0.1091</td>
+</tr>
+<tr class="even">
+<td align="center">gna4</td>
+<td align="center">0.746</td>
+<td align="center">-0.9453</td>
+<td align="center">0.3792</td>
+</tr>
+<tr class="odd">
+<td align="center">gnn5</td>
+<td align="center">-0.05995</td>
+<td align="center">-1.094</td>
+<td align="center">-0.2187</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="examples.html#cb3-1"></a>    <span class="kw">pander</span>(<span class="kw">head</span>(fieldLong[<span class="kw">order</span>(fieldLong<span class="op">$</span>id),], <span class="dv">6</span>))</span></code></pre></div>
+<table style="width:64%;">
+<colgroup>
+<col width="13%" />
+<col width="8%" />
+<col width="11%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">X</th>
+<th align="center">id</th>
+<th align="center">InfoType</th>
+<th align="center">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>23</strong></td>
+<td align="center">23</td>
+<td align="center">aal26</td>
+<td align="center">zThreat</td>
+<td align="center">0.0155</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>66</strong></td>
+<td align="center">66</td>
+<td align="center">aal26</td>
+<td align="center">zPos</td>
+<td align="center">-0.2326</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>109</strong></td>
+<td align="center">109</td>
+<td align="center">aal26</td>
+<td align="center">zNone</td>
+<td align="center">-0.6209</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>36</strong></td>
+<td align="center">36</td>
+<td align="center">aco50</td>
+<td align="center">zThreat</td>
+<td align="center">0.2082</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>79</strong></td>
+<td align="center">79</td>
+<td align="center">aco50</td>
+<td align="center">zPos</td>
+<td align="center">0.3443</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>122</strong></td>
+<td align="center">122</td>
+<td align="center">aco50</td>
+<td align="center">zNone</td>
+<td align="center">-0.5414</td>
+</tr>
+</tbody>
+</table>
+<p>In this experiment, children aged 6-9 years were given verbal information about two novel Australian marsupials that contained:</p>
+<ul>
+<li>either threat, or</li>
+<li>positive content.</li>
+</ul>
+<p>A third marsupial, about which no information was given, acted as a control. (The type of information was counterbalanced across animals for different children).
+After the information, children were asked to approach three boxes that they were told contained the animals (in fact they did not). <em>Latency</em> to approach the boxes acted as a behavior measure of their fear of these animals.</p>
+<p>This part of the experiment has a one-way repeated measures design (children approached all three boxes). The <em>approach times</em> were <em>reported as z-scores</em> where a positive score indicates that children took longer than average to approach, 0 represents the average approach time, and a negative score is indicative of being faster than average to approach.</p>
+<p>The data frame <code>fieldWide</code> contains 4 variables:</p>
+<ol style="list-style-type: decimal">
+<li><code>id</code>: indicates the participant code</li>
+<li><code>zThreat</code>: threat information</li>
+<li><code>zPos</code>: positive information</li>
+<li><code>zNone</code>: no information</li>
+</ol>
+<p>A version of this data file in ‘long’ format (<em>FieldLawson2003Long.csv</em>) contains these data (<code>fieldLong</code>) restructured into four variables:</p>
+<ol style="list-style-type: decimal">
+<li><code>x</code>: consecutive number (not used for the analysis)</li>
+<li><code>id</code>: as above</li>
+<li><code>InfoType</code>: codes whether a score relates to an animal about which threat, positive or no information was given, and</li>
+<li><code>value</code>: contains the z-score for the time for a given child to approach a given box.</li>
+</ol>
+<div id="check-assumptions" class="section level3 unnumbered">
+<h3>Check Assumptions</h3>
+<p>Explore the data by drawing boxplot, histograms and if desired some descriptive statistics. Discuss the results of your analysis.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="examples.html#cb4-1"></a>  <span class="kw">boxplot</span>(value <span class="op">~</span><span class="st"> </span>InfoType, fieldLong) <span class="co"># use Long Format Data</span></span>
+<span id="cb4-2"><a href="examples.html#cb4-2"></a>    DF &lt;-<span class="st"> </span>fieldWide <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(InfoType, value, <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>) <span class="co"># or change to Long</span></span>
+<span id="cb4-3"><a href="examples.html#cb4-3"></a>    DF<span class="op">$</span>InfoType &lt;-<span class="st"> </span><span class="kw">as.factor</span>(DF<span class="op">$</span>InfoType)</span>
+<span id="cb4-4"><a href="examples.html#cb4-4"></a>    <span class="kw">boxplot</span>(value <span class="op">~</span><span class="st"> </span>InfoType, DF)</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/Dependent-t-test-Plots-1.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="examples.html#cb5-1"></a>  DF_Means &lt;-<span class="st"> </span>DF <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(InfoType) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-2"><a href="examples.html#cb5-2"></a><span class="st">              </span><span class="kw">summarise_at</span>(<span class="dt">.vars =</span> <span class="kw">names</span>(.)[<span class="dv">3</span>],<span class="dt">.funs =</span> <span class="kw">c</span>(<span class="dt">mean=</span><span class="st">&quot;mean&quot;</span>))</span>
+<span id="cb5-3"><a href="examples.html#cb5-3"></a>  <span class="kw">barplot</span>(mean <span class="op">~</span><span class="st"> </span>InfoType, DF_Means)</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/Dependent-t-test-Plots-2.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="examples.html#cb6-1"></a>  <span class="co"># hist(fieldWide$zThreat)</span></span>
+<span id="cb6-2"><a href="examples.html#cb6-2"></a>  <span class="co"># hist(fieldWide$zPos)</span></span>
+<span id="cb6-3"><a href="examples.html#cb6-3"></a>  <span class="co"># hist(fieldWide$zNone)</span></span></code></pre></div>
+<p>A valuable plot to see the distributional properties of the data is the histogram or the density plot, e.g.:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="examples.html#cb7-1"></a>    <span class="kw">ggplot</span>(fieldLong, <span class="kw">aes</span>(<span class="dt">x =</span> value, <span class="dt">y =</span> InfoType)) <span class="op">+</span></span>
+<span id="cb7-2"><a href="examples.html#cb7-2"></a><span class="st">    </span><span class="kw">geom_density_ridges</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> InfoType)) <span class="op">+</span></span>
+<span id="cb7-3"><a href="examples.html#cb7-3"></a><span class="st">    </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb7-4"><a href="examples.html#cb7-4"></a><span class="st">      </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/Dependent-Distribution-1.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="standard-t-test" class="section level3 unnumbered">
+<h3>Standard t-Test</h3>
+<p>Calculate the standard parametric t-Test for repeatet measure designs and discuss the results.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="examples.html#cb8-1"></a>  <span class="kw">pander</span>(<span class="kw">t.test</span>(fieldWide<span class="op">$</span>zThreat, fieldWide<span class="op">$</span>zNone, <span class="dt">paired =</span> T))</span></code></pre></div>
+<table style="width:86%;">
+<caption>Paired t-test: <code>fieldWide$zThreat</code> and <code>fieldWide$zNone</code> (continued below)</caption>
+<colgroup>
+<col width="23%" />
+<col width="6%" />
+<col width="20%" />
+<col width="34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Test statistic</th>
+<th align="center">df</th>
+<th align="center">P value</th>
+<th align="center">Alternative hypothesis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">2.87</td>
+<td align="center">42</td>
+<td align="center">0.006405 * *</td>
+<td align="center">two.sided</td>
+</tr>
+</tbody>
+</table>
+<table style="width:36%;">
+<colgroup>
+<col width="36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">mean of the differences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0.492</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="robust-t-test" class="section level3 unnumbered">
+<h3>Robust t-Test</h3>
+<p>Next we will look at the Yuen’s modified t-Test for trimmed means <span class="citation">(Yuen <a href="#ref-Yuen.1974" role="doc-biblioref">1974</a>)</span>. For an extented version with bootstrapping refer to <span class="citation">(Keselman <a href="#ref-Keselman.2004" role="doc-biblioref">2004</a>)</span></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="examples.html#cb9-1"></a>  <span class="kw">pander</span>(<span class="kw">yuend</span>(fieldWide<span class="op">$</span>zThreat, fieldWide<span class="op">$</span>zNone, <span class="dt">tr =</span> <span class="fl">0.2</span>))</span></code></pre></div>
+<ul>
+<li><strong>test</strong>: <em>2.528</em></li>
+<li><strong>conf.int</strong>: <em>0.0756</em> and <em>0.7335</em></li>
+<li><strong>se</strong>: <em>0.16</em></li>
+<li><strong>p.value</strong>: <em>0.01789</em></li>
+<li><strong>df</strong>: <em>26</em></li>
+<li><strong>diff</strong>: <em>0.4046</em></li>
+<li><strong>effsize</strong>: <em>0.3321</em></li>
+<li><strong>call</strong>: <code>yuend(x = fieldWide$zThreat, y = fieldWide$zNone, tr = 0.2)</code></li>
+</ul>
+<!-- end of list -->
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="examples.html#cb10-1"></a>  <span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb10-2"><a href="examples.html#cb10-2"></a>  <span class="kw">pander</span>(<span class="kw">Dqcomhd</span>(fieldWide<span class="op">$</span>zThreat, fieldWide<span class="op">$</span>zNone, <span class="dt">nboot =</span> <span class="dv">200</span>, <span class="dt">q =</span> <span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)))</span></code></pre></div>
+<ul>
+<li><p><strong>partable</strong>:</p>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="5%" />
+<col width="5%" />
+<col width="11%" />
+<col width="11%" />
+<col width="14%" />
+<col width="11%" />
+<col width="10%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">q</th>
+<th align="center">n1</th>
+<th align="center">n2</th>
+<th align="center">est1</th>
+<th align="center">est2</th>
+<th align="center">est1-est.2</th>
+<th align="center">ci.low</th>
+<th align="center">ci.up</th>
+<th align="center">p.crit</th>
+<th align="center">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0.25</td>
+<td align="center">43</td>
+<td align="center">43</td>
+<td align="center">-0.4243</td>
+<td align="center">-0.7578</td>
+<td align="center">0.3335</td>
+<td align="center">0.01017</td>
+<td align="center">0.6655</td>
+<td align="center">0.05</td>
+<td align="center">0.03</td>
+</tr>
+<tr class="even">
+<td align="center">0.5</td>
+<td align="center">43</td>
+<td align="center">43</td>
+<td align="center">0.1021</td>
+<td align="center">-0.2668</td>
+<td align="center">0.3688</td>
+<td align="center">0.07493</td>
+<td align="center">0.685</td>
+<td align="center">0.01667</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">0.75</td>
+<td align="center">43</td>
+<td align="center">43</td>
+<td align="center">0.8274</td>
+<td align="center">0.2319</td>
+<td align="center">0.5956</td>
+<td align="center">0.1083</td>
+<td align="center">1.198</td>
+<td align="center">0.025</td>
+<td align="center">0.03</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>call</strong>: <code>Dqcomhd(x = fieldWide$zThreat, y = fieldWide$zNone, q = c(0.25,      0.5, 0.75), nboot = 200)</code></p></li>
+</ul>
+<!-- end of list -->
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="examples.html#cb11-1"></a>  <span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb11-2"><a href="examples.html#cb11-2"></a>  <span class="kw">pander</span>(<span class="kw">dep.effect</span>(fieldWide<span class="op">$</span>zThreat, fieldWide<span class="op">$</span>zNone))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="24%" />
+<col width="9%" />
+<col width="12%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">NULL</th>
+<th align="center">Est</th>
+<th align="center">S</th>
+<th align="center">M</th>
+<th align="center">L</th>
+<th align="center">ci.low</th>
+<th align="center">ci.up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>AKP</strong></td>
+<td align="center">0</td>
+<td align="center">0.3869</td>
+<td align="center">0.1</td>
+<td align="center">0.3</td>
+<td align="center">0.5</td>
+<td align="center">0.1349</td>
+<td align="center">0.7173</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>QS (median)</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.7209</td>
+<td align="center">0.54</td>
+<td align="center">0.62</td>
+<td align="center">0.69</td>
+<td align="center">0.5116</td>
+<td align="center">0.814</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>QStr</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.6977</td>
+<td align="center">0.54</td>
+<td align="center">0.62</td>
+<td align="center">0.69</td>
+<td align="center">0.5349</td>
+<td align="center">0.7907</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>SIGN</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.3256</td>
+<td align="center">0.46</td>
+<td align="center">0.38</td>
+<td align="center">0.31</td>
+<td align="center">0.192</td>
+<td align="center">0.476</td>
+</tr>
+</tbody>
+</table>
+<p>Both tests yield significant differences. Note that trimming reduces:</p>
+<ol style="list-style-type: decimal">
+<li>the mean difference from 0.49 to 0.40, and</li>
+<li>the test statistic is smaller in the robust version.</li>
+</ol>
+<p>We could report the robust test as a significant difference between trimmed mean approach times to the threat and control animals, <span class="math inline">\(M_{diff} = 0.40 [0.08, 0.74], Y_t (26) = 2.53, p = 0.018\)</span>.</p>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="two-independent-means" class="section level2 unnumbered">
+<h2>Two independent means</h2>
+<div id="check-assumptions-1" class="section level3 unnumbered">
+<h3>Check Assumptions</h3>
+</div>
+<div id="standard-t-test-1" class="section level3 unnumbered">
+<h3>Standard t-Test</h3>
+</div>
+<div id="robust-t-test-1" class="section level3 unnumbered">
+<h3>Robust t-Test</h3>
+</div>
+</div>
+<div id="several-dependent-means" class="section level2 unnumbered">
+<h2>Several dependent means</h2>
+<p>The data used in this example is the same as for the dependent t-Test (i.e.: <em>FieldLawson2003.csv</em>)</p>
+<div id="check-assumptions-2" class="section level3 unnumbered">
+<h3>Check Assumptions</h3>
+<p>To compare the latencies for all three boxes, we could use a repeated measure ANOVA function such as the <code>aov()</code>, or as an alternative the <code>rstatix::anova_test()</code> function. But before we do the analysis, we should check for possible violations of the assumptions:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="examples.html#cb12-1"></a>  <span class="co"># Assumptioncheck</span></span>
+<span id="cb12-2"><a href="examples.html#cb12-2"></a>  fieldLong          &lt;-<span class="st"> </span>fieldLong[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>]</span>
+<span id="cb12-3"><a href="examples.html#cb12-3"></a>  fieldLong<span class="op">$</span>id       &lt;-<span class="st"> </span><span class="kw">factor</span>(fieldLong<span class="op">$</span>id)</span>
+<span id="cb12-4"><a href="examples.html#cb12-4"></a>  fieldLong<span class="op">$</span>InfoType &lt;-<span class="st"> </span><span class="kw">factor</span>(fieldLong<span class="op">$</span>InfoType)</span>
+<span id="cb12-5"><a href="examples.html#cb12-5"></a>  <span class="kw">pander</span>(fieldLong <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(InfoType) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">identify_outliers</span>(value))</span></code></pre></div>
+<table style="width:74%;">
+<colgroup>
+<col width="15%" />
+<col width="11%" />
+<col width="11%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">InfoType</th>
+<th align="center">id</th>
+<th align="center">value</th>
+<th align="center">is.outlier</th>
+<th align="center">is.extreme</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">zNone</td>
+<td align="center">bku59</td>
+<td align="center">2.729</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">zPos</td>
+<td align="center">wdd2</td>
+<td align="center">2.574</td>
+<td align="center">TRUE</td>
+<td align="center">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="center">zPos</td>
+<td align="center">inl37</td>
+<td align="center">1.491</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">zPos</td>
+<td align="center">vxp18</td>
+<td align="center">1.008</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="center">zPos</td>
+<td align="center">pap44</td>
+<td align="center">1.166</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">zThreat</td>
+<td align="center">tat36</td>
+<td align="center">4.2</td>
+<td align="center">TRUE</td>
+<td align="center">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="center">zThreat</td>
+<td align="center">gtu30</td>
+<td align="center">3.085</td>
+<td align="center">TRUE</td>
+<td align="center">FALSE</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="examples.html#cb13-1"></a>  <span class="kw">pander</span>(<span class="kw">rbind</span>(<span class="kw">shapiro_test</span>(fieldWide<span class="op">$</span>zThreat), </span>
+<span id="cb13-2"><a href="examples.html#cb13-2"></a>               <span class="kw">shapiro_test</span>(fieldWide<span class="op">$</span>zPos), </span>
+<span id="cb13-3"><a href="examples.html#cb13-3"></a>               <span class="kw">shapiro_test</span>(fieldWide<span class="op">$</span>zNone)))</span></code></pre></div>
+<table style="width:61%;">
+<colgroup>
+<col width="27%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">variable</th>
+<th align="center">statistic</th>
+<th align="center">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">fieldWide$zThreat</td>
+<td align="center">0.8894</td>
+<td align="center">0.0006053</td>
+</tr>
+<tr class="even">
+<td align="center">fieldWide$zPos</td>
+<td align="center">0.8463</td>
+<td align="center">4.207e-05</td>
+</tr>
+<tr class="odd">
+<td align="center">fieldWide$zNone</td>
+<td align="center">0.9047</td>
+<td align="center">0.001741</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="examples.html#cb14-1"></a>  <span class="co"># </span></span>
+<span id="cb14-2"><a href="examples.html#cb14-2"></a>  bxp         &lt;-<span class="st"> </span><span class="kw">ggboxplot</span>(fieldLong,</span>
+<span id="cb14-3"><a href="examples.html#cb14-3"></a>                           <span class="dt">x =</span> <span class="st">&quot;InfoType&quot;</span>, </span>
+<span id="cb14-4"><a href="examples.html#cb14-4"></a>                           <span class="dt">y =</span> <span class="st">&quot;value&quot;</span>, </span>
+<span id="cb14-5"><a href="examples.html#cb14-5"></a>                           <span class="dt">add =</span> <span class="st">&quot;point&quot;</span>)</span>
+<span id="cb14-6"><a href="examples.html#cb14-6"></a>  <span class="kw">print</span>(bxp)</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/ANOVA-RM-1-Fac-1-Assumption-1.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="examples.html#cb15-1"></a>  qqp         &lt;-<span class="st"> </span><span class="kw">ggqqplot</span>(fieldLong,</span>
+<span id="cb15-2"><a href="examples.html#cb15-2"></a>                          <span class="st">&quot;value&quot;</span>,</span>
+<span id="cb15-3"><a href="examples.html#cb15-3"></a>                          <span class="dt">facet.by =</span> <span class="st">&quot;InfoType&quot;</span>)</span>
+<span id="cb15-4"><a href="examples.html#cb15-4"></a>  <span class="kw">print</span>(qqp)</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/ANOVA-RM-1-Fac-1-Assumption-2.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="examples.html#cb16-1"></a>  <span class="co">#Non-robust</span></span>
+<span id="cb16-2"><a href="examples.html#cb16-2"></a>  <span class="kw">pander</span>(<span class="kw">summary</span>(<span class="kw">aov</span>(value <span class="op">~</span><span class="st"> </span>InfoType <span class="op">+</span><span class="st"> </span><span class="kw">Error</span>(id<span class="op">/</span>InfoType), <span class="dt">data =</span> fieldLong)))</span></code></pre></div>
+<table style="width:86%;">
+<colgroup>
+<col width="23%" />
+<col width="6%" />
+<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Df</th>
+<th align="center">Sum Sq</th>
+<th align="center">Mean Sq</th>
+<th align="center">F value</th>
+<th align="center">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Residuals</strong></td>
+<td align="center">42</td>
+<td align="center">51.33</td>
+<td align="center">1.222</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>InfoType</strong></td>
+<td align="center">2</td>
+<td align="center">8.839</td>
+<td align="center">4.42</td>
+<td align="center">7.103</td>
+<td align="center">0.001412</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Residuals1</strong></td>
+<td align="center">84</td>
+<td align="center">52.26</td>
+<td align="center">0.6222</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="examples.html#cb17-1"></a>  <span class="co"># Alternativ: rstatix::anova_test()</span></span>
+<span id="cb17-2"><a href="examples.html#cb17-2"></a>  res.anova            &lt;-<span class="st"> </span><span class="kw">pander</span>(<span class="kw">anova_test</span>(<span class="dt">data =</span> fieldLong, </span>
+<span id="cb17-3"><a href="examples.html#cb17-3"></a>                                            <span class="dt">dv =</span> value, </span>
+<span id="cb17-4"><a href="examples.html#cb17-4"></a>                                            <span class="dt">wid =</span> id, </span>
+<span id="cb17-5"><a href="examples.html#cb17-5"></a>                                            <span class="dt">within =</span> InfoType))</span></code></pre></div>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="standard-anova" class="section level3 unnumbered">
+<h3>Standard ANOVA</h3>
+<p>Since ANOVA’s are special forms of linear models, we could also use the <code>lm()</code> function. The difference between these functions is the output. The <code>aov()</code> returns the table of <span class="math inline">\(F\)</span>-statistics, whereas <code>lm()</code> returns the specific parameter estimates, significance tests and overall fit statistics.</p>
+<p>The formula (model) of the <code>aov()</code> is specified as:</p>
+<center>
+<strong>Value ~ InfoType + Error(id/InfoType)</strong>
+</center>
+<p><u>In words:</u> we predict the <em>Value</em> from the variable <em>InfoType</em> plus an <em>error term</em> for that variable that is nested within the variable <em>id</em>. It is the error term that tells the function that it is a repeated measures design (because the error term for the predictor variable is nested within cases).</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="examples.html#cb18-1"></a>  <span class="kw">print</span>(qqp)</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/ANOVA-RM-1-Fac-1-1.png" width="672" /></p>
+<p>The results show means which are significantly different with latencies after threat information being significantly longer than for positive or no information. The results of the follow-up-test are shown below:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="examples.html#cb19-1"></a>  <span class="kw">pander</span>(<span class="kw">pairwise.t.test</span>(fieldLong<span class="op">$</span>value, fieldLong<span class="op">$</span>InfoType, <span class="dt">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>, <span class="dt">paired =</span> T))</span></code></pre></div>
+<ul>
+<li><p><strong>method</strong>: paired t tests</p></li>
+<li><p><strong>data.name</strong>: fieldLong<span class="math inline">\(value and fieldLong\)</span>InfoType</p></li>
+<li><p><strong>p.value</strong>:</p>
+<table style="width:49%;">
+<colgroup>
+<col width="19%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">zNone</th>
+<th align="center">zPos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>zPos</strong></td>
+<td align="center">1</td>
+<td align="center">NA</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>zThreat</strong></td>
+<td align="center">0.01922</td>
+<td align="center">0.005809</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>p.adjust.method</strong>: bonferroni</p></li>
+</ul>
+<!-- end of list -->
+</div>
+<div id="robust-anova" class="section level3 unnumbered">
+<h3>Robust ANOVA</h3>
+<p>For the robust test we will use the <code>rmanovab()</code> function and get the post hoc tests with <code>pairdepb()</code>. The option <code>tr</code> controls the amount of trim (and the default of 20% is advised). For the bootstrap-option the default is set to <code>nboot = 599</code> (sufficient for now, but it is common to use 1000 or 2000).</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="examples.html#cb20-1"></a>  <span class="co">#Robust</span></span>
+<span id="cb20-2"><a href="examples.html#cb20-2"></a>  <span class="kw">pander</span>(<span class="kw">rmanovab</span>(fieldLong<span class="op">$</span>value, fieldLong<span class="op">$</span>InfoType, fieldLong<span class="op">$</span>id, <span class="dt">tr =</span> <span class="fl">0.2</span>, <span class="dt">nboot =</span> <span class="dv">500</span>))</span></code></pre></div>
+<ul>
+<li><strong>test</strong>: <em>6.751</em></li>
+<li><strong>crit</strong>: <em>3.153</em></li>
+<li><strong>call</strong>: <code>rmanovab(y = fieldLong$value, groups = fieldLong$InfoType, blocks = fieldLong$id,      tr = 0.2, nboot = 500)</code></li>
+</ul>
+<!-- end of list -->
+<p>The robust test results also show a significant difference between trimmed mean approach times to the three animals, <span class="math inline">\(F_t = 6.75, p &lt; .050\)</span>. The results of the robust follow-up test show the difference between trimmed means (<span class="math inline">\(\hat{\psi}\)</span>), the associated bootstrap confidence interval, the test of this difference, the critical value of the test and whether the trimmed means are significantly different (at <span class="math inline">\(\alpha = 0.05\)</span>):</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="examples.html#cb21-1"></a>  <span class="kw">pander</span>(<span class="kw">pairdepb</span>(fieldLong<span class="op">$</span>value, fieldLong<span class="op">$</span>InfoType, fieldLong<span class="op">$</span>id, <span class="dt">tr =</span> <span class="fl">0.2</span>, <span class="dt">nboot =</span> <span class="dv">500</span>))</span></code></pre></div>
+<ul>
+<li><p><strong>comp</strong>:</p>
+<table style="width:94%;">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="13%" />
+<col width="15%" />
+<col width="15%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Group</th>
+<th align="center">Group</th>
+<th align="center">psihat</th>
+<th align="center">ci.lower</th>
+<th align="center">ci.upper</th>
+<th align="center"> </th>
+<th align="center">crit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">0.5232</td>
+<td align="center">0.1398</td>
+<td align="center">0.9067</td>
+<td align="center">3.389</td>
+<td align="center">2.484</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">0.4046</td>
+<td align="center">0.007086</td>
+<td align="center">0.802</td>
+<td align="center">2.528</td>
+<td align="center">2.484</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">-0.1187</td>
+<td align="center">-0.4466</td>
+<td align="center">0.2092</td>
+<td align="center">-0.8989</td>
+<td align="center">2.484</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>fnames</strong>: <em>zThreat</em>, <em>zPos</em> and <em>zNone</em></p></li>
+<li><p><strong>call</strong>: <code>pairdepb(y = fieldLong$value, groups = fieldLong$InfoType, blocks = fieldLong$id,      tr = 0.2, nboot = 500)</code></p></li>
+</ul>
+<!-- end of list -->
+<p>We would report that the trimmed mean difference in latency between the threat box and the positive, <span class="math inline">\(\hat{\psi} = 0.52, [0.14,0.90]\)</span>, and no information, <span class="math inline">\(\hat{\psi} = 0.40, [0.01,0.80]\)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> boxes were significant. The trimmed mean difference between the positive and the no information box was not, <span class="math inline">\(\hat{\psi} = -0.12, [-0.44,0.90]\)</span>.</p>
+<div style="page-break-after: always;"></div>
+
+</div>
+</div>
+</div>
+<h3>Referenzen</h3>
+<div id="refs" class="references">
+<div id="ref-FieldLawson.2003">
+<p>Field, &amp; Lawson, A. P. 2003. “Fear Information and the Development of Fears During Childhood: Effects on Implicit Fear Responses and Behavioural Avoidance.” <em>Behaviour Research and Therapy, 41(11), 1277-1293</em>. <a href="https://doi.org/10.1016/s0005-7967(03)00034-2">https://doi.org/10.1016/s0005-7967(03)00034-2</a>.</p>
+</div>
+<div id="ref-Keselman.2004">
+<p>Keselman, H. J. 2004. “The New and Improved Two-Sample T Test.” <em>American Psychological Society, 15(1), 47-51</em>. <a href="https://doi.org/10.1111/j.0963-7214.2004.01501008.x">https://doi.org/10.1111/j.0963-7214.2004.01501008.x</a>.</p>
+</div>
+<div id="ref-Yuen.1974">
+<p>Yuen, K. K. 1974. “2-Sample Trimmed T for Unequal Population Variances.” <em>Biometrika, 61(1), 165-170</em>. <a href="https://doi.org/http://dx.doi.org/10.1093/biomet/61.1.165">https://doi.org/http://dx.doi.org/10.1093/biomet/61.1.165</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>be cautios with the interpretation of an effect if the <span class="math inline">\(CI\)</span> has an upper, or lower limit so close to Null!<a href="examples.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referenzen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

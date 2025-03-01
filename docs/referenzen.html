@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Referenzen | Robuste Methoden</title>
+  <meta name="description" content="Maximize Accuracy and Power of Research" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Referenzen | Robuste Methoden" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Images/Cover.png" />
+  <meta property="og:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="github-repo" content="wgruber/RobustMethods" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Referenzen | Robuste Methoden" />
+  
+  <meta name="twitter:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="twitter:image" content="/Images/Cover.png" />
+
+<meta name="author" content="Walter Gruber" />
+
+
+<meta name="date" content="2025-03-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="conclusions-and-recommendations.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#roadmap"><i class="fa fa-check"></i>Roadmap</a></li>
+</ul></li>
+<li class="part"><span><b>PART I: GLM-Assumptions</b></span></li>
+<li class="chapter" data-level="" data-path="critical-assumptions.html"><a href="critical-assumptions.html"><i class="fa fa-check"></i>Critical Assumptions</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html"><i class="fa fa-check"></i>Normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#contaminated-normal-distributions"><i class="fa fa-check"></i>Contaminated Normal distributions</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#issues-with-normality"><i class="fa fa-check"></i>Issues with normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#residuals"><i class="fa fa-check"></i>Residuals</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#test-statistics"><i class="fa fa-check"></i>Test statistics</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#confidence-intervalls"><i class="fa fa-check"></i>Confidence intervalls</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html"><i class="fa fa-check"></i>Myth and misconceptions about robustness</a>
+<ul>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html#are-glms-robust"><i class="fa fa-check"></i>Are GLM’s robust?</a></li>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html#validity-of-central-limit-theorem"><i class="fa fa-check"></i>Validity of central limit theorem</a></li>
+</ul></li>
+<li class="part"><span><b>PART II: Robust Methods</b></span></li>
+<li class="chapter" data-level="" data-path="definition-of-robust.html"><a href="definition-of-robust.html"><i class="fa fa-check"></i>Definition of Robust</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html"><i class="fa fa-check"></i>Solutions to violated assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#alternative-estimators"><i class="fa fa-check"></i>Alternative estimators</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#transformation-of-data"><i class="fa fa-check"></i>Transformation of data</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#nonparametric-tests"><i class="fa fa-check"></i>Nonparametric tests</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#robust-methods"><i class="fa fa-check"></i>Robust methods</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#adjusting-the-standard-errors"><i class="fa fa-check"></i>Adjusting the standard errors</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html"><i class="fa fa-check"></i>Selected Robust measures of location</a>
+<ul>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#trimmed-mean"><i class="fa fa-check"></i>Trimmed mean</a></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#winsorized-mean"><i class="fa fa-check"></i>Winsorized mean</a>
+<ul>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#winsorization-round-up"><i class="fa fa-check"></i>Winsorization Round-Up</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#m-estimators"><i class="fa fa-check"></i>M-estimators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="measures-of-scale.html"><a href="measures-of-scale.html"><i class="fa fa-check"></i>Measures of Scale</a></li>
+<li class="part"><span><b>PART III: R-Examples</b></span></li>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i>R-Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html#other-packages-in-r"><i class="fa fa-check"></i>Other Packages in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html"><i class="fa fa-check"></i>Two independent means</a>
+<ul>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html#standard-t-test"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html#robust-t-test"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i>One-way ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html#standard-anova"><i class="fa fa-check"></i>Standard ANOVA</a></li>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html#robust-one-way-anova"><i class="fa fa-check"></i>Robust One-way ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html"><i class="fa fa-check"></i>Two dependent means</a>
+<ul>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#check-assumptions"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#standard-t-test-1"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#robust-t-test-1"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html"><i class="fa fa-check"></i>One-way RM-ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#check-assumptions-1"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#standard-rm-anova"><i class="fa fa-check"></i>Standard RM-ANOVA</a></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#robust-anova"><i class="fa fa-check"></i>Robust ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html"><i class="fa fa-check"></i>Regression Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#check-data"><i class="fa fa-check"></i>Check Data</a></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#standard-linear-model"><i class="fa fa-check"></i>Standard Linear Model</a></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#robust-linear-model-rlm"><i class="fa fa-check"></i>Robust Linear Model (RLM)</a>
+<ul>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#rlm-extended"><i class="fa fa-check"></i>RLM-Extended</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>PART IV: Summary</b></span></li>
+<li class="chapter" data-level="" data-path="conclusions-and-recommendations.html"><a href="conclusions-and-recommendations.html"><i class="fa fa-check"></i>Conclusions and recommendations</a>
+<ul>
+<li class="chapter" data-level="" data-path="conclusions-and-recommendations.html"><a href="conclusions-and-recommendations.html#recommendations"><i class="fa fa-check"></i>Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenzen.html"><a href="referenzen.html"><i class="fa fa-check"></i>Referenzen</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Robuste Methoden</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="referenzen" class="section level1 unnumbered hasAnchor">
+<h1>Referenzen<a href="referenzen.html#referenzen" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div class="csl-entry">
+Brunner E., Langer F., Domhof S. 2002. <em>Nonparametric Analysis of Longitudinal Data in Factorial Experiments.</em> <span>John Wiley &amp; Sons, New York.</span>
+</div>
+<div class="csl-entry">
+Field, &amp; Lawson, A. P. 2003. <span>“Fear Information and the Development of Fears During Childhood: Effects on Implicit Fear Responses and Behavioural Avoidance.”</span> <em>Behaviour Research and Therapy, 41(11), 1277-1293</em>. <a href="https://doi.org/10.1016/s0005-7967(03)00034-2">https://doi.org/10.1016/s0005-7967(03)00034-2</a>.
+</div>
+<div class="csl-entry">
+Field, &amp; Wilcox, A. P. 2017. <span>“Robust Statistical Methods: A Primer for Clinical Psychology and Experimental Psychopathology Researchers.”</span> <em>Behaviour Research and Therapy, 98, 19-38</em>. https://doi.org/<a href="https://doi.org/10.1016/j.brat.2017.05.013">https://doi.org/10.1016/j.brat.2017.05.013</a>.
+</div>
+<div class="csl-entry">
+Hurn, M. David. 2008. <span>“Modern Robust Statistical Methods: An Easy Way to Maximize the Accuracy and Power of Your Research.”</span> <em>American Psychologist, Vol. 63, No. 7, 591–601</em>. <a href="https://doi.org/10.1037/0003-066X.63.7.591">https://doi.org/10.1037/0003-066X.63.7.591</a>.
+</div>
+<div class="csl-entry">
+Kelly, Barker, V. L. 2010. <span>“Can Rachman’s Indirect Pathways Be Used to Un-Learn Fear? A Prospective Paradigm to Test Whether Children’s Fears Can Be Reduced Using Positive Information and Modelling a Non-Anxious Response.”</span> <em>Behaviour Research and Therapy, 48(2), 164-170</em>. <a href="https://doi.org/10.1016/j.brat.2009.10.002">https://doi.org/10.1016/j.brat.2009.10.002</a>.
+</div>
+<div class="csl-entry">
+Keselman, H. J. 2004. <span>“The New and Improved Two-Sample t Test.”</span> <em>American Psychological Society, 15(1), 47-51</em>. <a href="https://doi.org/10.1111/j.0963-7214.2004.01501008.x">https://doi.org/10.1111/j.0963-7214.2004.01501008.x</a>.
+</div>
+<div class="csl-entry">
+Kesleman, Othman, H. J. 2016. <span>“Generalized Linear Model Analyses for Treatment Group Equality When Data Are Non-Normal.”</span> <em>Journal of Modern Applied Statistical Methods, 15(1), 32-61</em>. https://doi.org/<a href="http://dx.doi.org/10.1037//0033-2909.105.1.156">http://dx.doi.org/10.1037//0033-2909.105.1.156</a>.
+</div>
+<div class="csl-entry">
+Koller, &amp; Stahel, M. 2011. <span>“Sharpening Wald-Type Inference in Robust Regression for Small Samples.”</span> <em>Computational Statistics &amp; Data Analysis, 58(8), 2504-2515</em>. https://doi.org/<a href="http://dx.doi.org/10.1016/j.csda.2011.02.014">http://dx.doi.org/10.1016/j.csda.2011.02.014</a>.
+</div>
+<div class="csl-entry">
+Mair, Wilcox R., P. 2020. <span>“Robust Statistical Methods in r Using the WRS2 Package.”</span> <em>Behavioural Research Methods, 52(2), 464-488</em>. <a href="https://doi.org/10.3758/s13428-019-01246-w">https://doi.org/10.3758/s13428-019-01246-w</a>.
+</div>
+<div class="csl-entry">
+Micceri, T. 1989. <span>“The Unicorn, the Normal Curve, and Other Improbable Creatures.”</span> <em>Psychological Bulletin, 105(1), 156-166</em>. https://doi.org/<a href="http://dx.doi.org/10.1037//0033-2909.105.1.156">http://dx.doi.org/10.1037//0033-2909.105.1.156</a>.
+</div>
+<div class="csl-entry">
+Tukey, John W. 2009. <em>A Survey of Sampling from Contaminated Distributions.</em> <span>Princeton, New Jersey: Princeton University</span>.
+</div>
+<div class="csl-entry">
+Wilcox, R. 2012. <em>Introduction to Robust Estimation &amp; Hypothesis Testing.</em> 3rd ed. Amsterdam, The Netherlands: <span>Elsevier</span>.
+</div>
+<div class="csl-entry">
+Yuen, K. K. 1974. <span>“2-Sample Trimmed t for Unequal Population Variances.”</span> <em>Biometrika, 61(1), 165-170</em>. https://doi.org/<a href="http://dx.doi.org/10.1093/biomet/61.1.165">http://dx.doi.org/10.1093/biomet/61.1.165</a>.
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conclusions-and-recommendations.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

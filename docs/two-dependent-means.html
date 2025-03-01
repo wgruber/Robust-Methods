@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Two dependent means | Robuste Methoden</title>
+  <meta name="description" content="Maximize Accuracy and Power of Research" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Two dependent means | Robuste Methoden" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Images/Cover.png" />
+  <meta property="og:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="github-repo" content="wgruber/RobustMethods" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Two dependent means | Robuste Methoden" />
+  
+  <meta name="twitter:description" content="Maximize Accuracy and Power of Research" />
+  <meta name="twitter:image" content="/Images/Cover.png" />
+
+<meta name="author" content="Walter Gruber" />
+
+
+<meta name="date" content="2025-03-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="one-way-anova.html"/>
+<link rel="next" href="one-way-rm-anova.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#roadmap"><i class="fa fa-check"></i>Roadmap</a></li>
+</ul></li>
+<li class="part"><span><b>PART I: GLM-Assumptions</b></span></li>
+<li class="chapter" data-level="" data-path="critical-assumptions.html"><a href="critical-assumptions.html"><i class="fa fa-check"></i>Critical Assumptions</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html"><i class="fa fa-check"></i>Normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#contaminated-normal-distributions"><i class="fa fa-check"></i>Contaminated Normal distributions</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#issues-with-normality"><i class="fa fa-check"></i>Issues with normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#residuals"><i class="fa fa-check"></i>Residuals</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#test-statistics"><i class="fa fa-check"></i>Test statistics</a></li>
+<li class="chapter" data-level="" data-path="normality.html"><a href="normality.html#confidence-intervalls"><i class="fa fa-check"></i>Confidence intervalls</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html"><i class="fa fa-check"></i>Myth and misconceptions about robustness</a>
+<ul>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html#are-glms-robust"><i class="fa fa-check"></i>Are GLM’s robust?</a></li>
+<li class="chapter" data-level="" data-path="myth-and-misconceptions-about-robustness.html"><a href="myth-and-misconceptions-about-robustness.html#validity-of-central-limit-theorem"><i class="fa fa-check"></i>Validity of central limit theorem</a></li>
+</ul></li>
+<li class="part"><span><b>PART II: Robust Methods</b></span></li>
+<li class="chapter" data-level="" data-path="definition-of-robust.html"><a href="definition-of-robust.html"><i class="fa fa-check"></i>Definition of Robust</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html"><i class="fa fa-check"></i>Solutions to violated assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#alternative-estimators"><i class="fa fa-check"></i>Alternative estimators</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#transformation-of-data"><i class="fa fa-check"></i>Transformation of data</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#nonparametric-tests"><i class="fa fa-check"></i>Nonparametric tests</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#robust-methods"><i class="fa fa-check"></i>Robust methods</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-violated-assumptions.html"><a href="solutions-to-violated-assumptions.html#adjusting-the-standard-errors"><i class="fa fa-check"></i>Adjusting the standard errors</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html"><i class="fa fa-check"></i>Selected Robust measures of location</a>
+<ul>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#trimmed-mean"><i class="fa fa-check"></i>Trimmed mean</a></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#winsorized-mean"><i class="fa fa-check"></i>Winsorized mean</a>
+<ul>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#winsorization-round-up"><i class="fa fa-check"></i>Winsorization Round-Up</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="selected-robust-measures-of-location.html"><a href="selected-robust-measures-of-location.html#m-estimators"><i class="fa fa-check"></i>M-estimators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="measures-of-scale.html"><a href="measures-of-scale.html"><i class="fa fa-check"></i>Measures of Scale</a></li>
+<li class="part"><span><b>PART III: R-Examples</b></span></li>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i>R-Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="r-packages.html"><a href="r-packages.html#other-packages-in-r"><i class="fa fa-check"></i>Other Packages in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html"><i class="fa fa-check"></i>Two independent means</a>
+<ul>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html#standard-t-test"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="two-independent-means.html"><a href="two-independent-means.html#robust-t-test"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i>One-way ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html#standard-anova"><i class="fa fa-check"></i>Standard ANOVA</a></li>
+<li class="chapter" data-level="" data-path="one-way-anova.html"><a href="one-way-anova.html#robust-one-way-anova"><i class="fa fa-check"></i>Robust One-way ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html"><i class="fa fa-check"></i>Two dependent means</a>
+<ul>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#check-assumptions"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#standard-t-test-1"><i class="fa fa-check"></i>Standard t-Test</a></li>
+<li class="chapter" data-level="" data-path="two-dependent-means.html"><a href="two-dependent-means.html#robust-t-test-1"><i class="fa fa-check"></i>Robust t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html"><i class="fa fa-check"></i>One-way RM-ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#check-assumptions-1"><i class="fa fa-check"></i>Check Assumptions</a></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#standard-rm-anova"><i class="fa fa-check"></i>Standard RM-ANOVA</a></li>
+<li class="chapter" data-level="" data-path="one-way-rm-anova.html"><a href="one-way-rm-anova.html#robust-anova"><i class="fa fa-check"></i>Robust ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html"><i class="fa fa-check"></i>Regression Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#check-data"><i class="fa fa-check"></i>Check Data</a></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#standard-linear-model"><i class="fa fa-check"></i>Standard Linear Model</a></li>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#robust-linear-model-rlm"><i class="fa fa-check"></i>Robust Linear Model (RLM)</a>
+<ul>
+<li class="chapter" data-level="" data-path="regression-models.html"><a href="regression-models.html#rlm-extended"><i class="fa fa-check"></i>RLM-Extended</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>PART IV: Summary</b></span></li>
+<li class="chapter" data-level="" data-path="conclusions-and-recommendations.html"><a href="conclusions-and-recommendations.html"><i class="fa fa-check"></i>Conclusions and recommendations</a>
+<ul>
+<li class="chapter" data-level="" data-path="conclusions-and-recommendations.html"><a href="conclusions-and-recommendations.html#recommendations"><i class="fa fa-check"></i>Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referenzen.html"><a href="referenzen.html"><i class="fa fa-check"></i>Referenzen</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Robuste Methoden</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="two-dependent-means" class="section level1 unnumbered hasAnchor">
+<h1>Two dependent means<a href="two-dependent-means.html#two-dependent-means" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="two-dependent-means.html#cb20-1" tabindex="-1"></a>  <span class="co"># Field &amp; Lawson (2003)</span></span>
+<span id="cb20-2"><a href="two-dependent-means.html#cb20-2" tabindex="-1"></a>    <span class="co"># fieldWide &lt;- read.csv(&quot;Daten/FieldLawson2003.csv&quot;)</span></span>
+<span id="cb20-3"><a href="two-dependent-means.html#cb20-3" tabindex="-1"></a>    <span class="co"># head(fieldWide, 5) </span></span>
+<span id="cb20-4"><a href="two-dependent-means.html#cb20-4" tabindex="-1"></a>    <span class="co"># fieldLong &lt;- read.csv(&quot;Daten/FieldLawson2003Long.csv&quot;)</span></span>
+<span id="cb20-5"><a href="two-dependent-means.html#cb20-5" tabindex="-1"></a>    <span class="co"># head(fieldLong, 5)</span></span>
+<span id="cb20-6"><a href="two-dependent-means.html#cb20-6" tabindex="-1"></a>  <span class="co"># Kelly et al. (2010)</span></span>
+<span id="cb20-7"><a href="two-dependent-means.html#cb20-7" tabindex="-1"></a>    <span class="co"># kellyz &lt;- read.csv(&quot;Daten/Kellyetalz.csv&quot;)</span></span>
+<span id="cb20-8"><a href="two-dependent-means.html#cb20-8" tabindex="-1"></a>    <span class="co"># head(kellyz, 5) </span></span>
+<span id="cb20-9"><a href="two-dependent-means.html#cb20-9" tabindex="-1"></a>    <span class="co"># kellyz[c(1:6, 91:96, 181:186),]</span></span>
+<span id="cb20-10"><a href="two-dependent-means.html#cb20-10" tabindex="-1"></a>  <span class="co"># Field &amp; Cartwright-Hatton (2008)</span></span>
+<span id="cb20-11"><a href="two-dependent-means.html#cb20-11" tabindex="-1"></a>    <span class="co"># fieldCH &lt;- read.csv(&quot;Daten/FieldCH2008.csv&quot;)</span></span>
+<span id="cb20-12"><a href="two-dependent-means.html#cb20-12" tabindex="-1"></a>    <span class="co"># head(fieldCH, 5)</span></span>
+<span id="cb20-13"><a href="two-dependent-means.html#cb20-13" tabindex="-1"></a>  <span class="co"># RCT data</span></span>
+<span id="cb20-14"><a href="two-dependent-means.html#cb20-14" tabindex="-1"></a>    rctLong <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Daten/RCTLong.csv&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb20-15"><a href="two-dependent-means.html#cb20-15" tabindex="-1"></a>    rctWide <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Daten/RCTWide.csv&quot;</span>, <span class="at">header =</span> T) </span>
+<span id="cb20-16"><a href="two-dependent-means.html#cb20-16" tabindex="-1"></a>    <span class="co"># head(rctWide, 5)</span></span>
+<span id="cb20-17"><a href="two-dependent-means.html#cb20-17" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="two-dependent-means.html#cb20-18" tabindex="-1"></a>    <span class="do">###############################################</span></span></code></pre></div>
+<p>The data used in this example (<em>FieldLawson2003.csv</em>, <em>FieldLawson2003Long.csv</em>) can be downloaded from the Blackboard <span class="citation">(cf. <a href="#ref-FieldLawson.2003">&amp;. L. Field A. P. 2003</a>)</span>.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="two-dependent-means.html#cb21-1" tabindex="-1"></a>    <span class="co"># Field &amp; Lawson (2003)</span></span>
+<span id="cb21-2"><a href="two-dependent-means.html#cb21-2" tabindex="-1"></a>    fieldWide <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Daten/FieldLawson2003.csv&quot;</span>)</span>
+<span id="cb21-3"><a href="two-dependent-means.html#cb21-3" tabindex="-1"></a>    fieldLong <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Daten/FieldLawson2003Long.csv&quot;</span>)</span>
+<span id="cb21-4"><a href="two-dependent-means.html#cb21-4" tabindex="-1"></a>    <span class="fu">pander</span>(<span class="fu">head</span>(fieldWide, <span class="dv">5</span>), <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table style="width:51%;">
+<colgroup>
+<col width="9%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">id</th>
+<th align="center">zThreat</th>
+<th align="center">zPos</th>
+<th align="center">zNone</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">gup1</td>
+<td align="center">-0.38</td>
+<td align="center">-1.1</td>
+<td align="center">0.016</td>
+</tr>
+<tr class="even">
+<td align="center">wdd2</td>
+<td align="center">1</td>
+<td align="center">2.6</td>
+<td align="center">-0.094</td>
+</tr>
+<tr class="odd">
+<td align="center">epr3</td>
+<td align="center">-0.19</td>
+<td align="center">-0.0017</td>
+<td align="center">-0.11</td>
+</tr>
+<tr class="even">
+<td align="center">gna4</td>
+<td align="center">0.75</td>
+<td align="center">-0.95</td>
+<td align="center">0.38</td>
+</tr>
+<tr class="odd">
+<td align="center">gnn5</td>
+<td align="center">-0.06</td>
+<td align="center">-1.1</td>
+<td align="center">-0.22</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="two-dependent-means.html#cb22-1" tabindex="-1"></a>    <span class="fu">pander</span>(<span class="fu">head</span>(fieldLong[<span class="fu">order</span>(fieldLong<span class="sc">$</span>id),], <span class="dv">6</span>), <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table style="width:60%;">
+<colgroup>
+<col width="13%" />
+<col width="8%" />
+<col width="11%" />
+<col width="15%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">X</th>
+<th align="center">id</th>
+<th align="center">InfoType</th>
+<th align="center">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>23</strong></td>
+<td align="center">23</td>
+<td align="center">aal26</td>
+<td align="center">zThreat</td>
+<td align="center">0.016</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>66</strong></td>
+<td align="center">66</td>
+<td align="center">aal26</td>
+<td align="center">zPos</td>
+<td align="center">-0.23</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>109</strong></td>
+<td align="center">109</td>
+<td align="center">aal26</td>
+<td align="center">zNone</td>
+<td align="center">-0.62</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>36</strong></td>
+<td align="center">36</td>
+<td align="center">aco50</td>
+<td align="center">zThreat</td>
+<td align="center">0.21</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>79</strong></td>
+<td align="center">79</td>
+<td align="center">aco50</td>
+<td align="center">zPos</td>
+<td align="center">0.34</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>122</strong></td>
+<td align="center">122</td>
+<td align="center">aco50</td>
+<td align="center">zNone</td>
+<td align="center">-0.54</td>
+</tr>
+</tbody>
+</table>
+<p>In this experiment, children aged 6-9 years were given verbal information about two novel Australian marsupials that contained:</p>
+<ul>
+<li>either threat, or</li>
+<li>positive content.</li>
+</ul>
+<p>A third marsupial, about which no information was given, acted as a control. (The type of information was counterbalanced across animals for different children).
+After the information, children were asked to approach three boxes that they were told contained the animals (in fact they did not). <em>Latency</em> to approach the boxes acted as a behavior measure of their fear of these animals.</p>
+<p>This part of the experiment has a one-way repeated measures design (children approached all three boxes). The <em>approach times</em> were <em>reported as z-scores</em> where a positive score indicates that children took longer than average to approach, 0 represents the average approach time, and a negative score is indicative of being faster than average to approach.</p>
+<p>The data frame <code>fieldWide</code> contains 4 variables:</p>
+<ol style="list-style-type: decimal">
+<li><code>id</code>: indicates the participant code</li>
+<li><code>zThreat</code>: threat information</li>
+<li><code>zPos</code>: positive information</li>
+<li><code>zNone</code>: no information</li>
+</ol>
+<p>A version of this data file in ‘long’ format (<em>FieldLawson2003Long.csv</em>) contains these data (<code>fieldLong</code>) restructured into four variables:</p>
+<ol style="list-style-type: decimal">
+<li><code>x</code>: consecutive number (not used for the analysis)</li>
+<li><code>id</code>: as above</li>
+<li><code>InfoType</code>: codes whether a score relates to an animal about which threat, positive or no information was given, and</li>
+<li><code>value</code>: contains the z-score for the time for a given child to approach a given box.</li>
+</ol>
+<div id="check-assumptions" class="section level2 unnumbered hasAnchor">
+<h2>Check Assumptions<a href="two-dependent-means.html#check-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Explore the data by drawing boxplot, histograms and if desired some descriptive statistics. Discuss the results of your analysis.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="two-dependent-means.html#cb23-1" tabindex="-1"></a>  <span class="fu">boxplot</span>(value <span class="sc">~</span> InfoType, fieldLong) <span class="co"># use Long Format Data</span></span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/Dependent-t-test-Plots-1.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="two-dependent-means.html#cb24-1" tabindex="-1"></a>    DF <span class="ot">&lt;-</span> fieldWide <span class="sc">%&gt;%</span> <span class="fu">gather</span>(InfoType, value, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="co"># or change to Long</span></span>
+<span id="cb24-2"><a href="two-dependent-means.html#cb24-2" tabindex="-1"></a>    DF<span class="sc">$</span>InfoType <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DF<span class="sc">$</span>InfoType)</span>
+<span id="cb24-3"><a href="two-dependent-means.html#cb24-3" tabindex="-1"></a>    <span class="fu">boxplot</span>(value <span class="sc">~</span> InfoType, DF)</span>
+<span id="cb24-4"><a href="two-dependent-means.html#cb24-4" tabindex="-1"></a>  DF_Means <span class="ot">&lt;-</span> DF <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(InfoType) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-5"><a href="two-dependent-means.html#cb24-5" tabindex="-1"></a>              <span class="fu">summarise_at</span>(<span class="at">.vars =</span> <span class="fu">names</span>(.)[<span class="dv">3</span>],<span class="at">.funs =</span> <span class="fu">c</span>(<span class="at">mean=</span><span class="st">&quot;mean&quot;</span>))</span>
+<span id="cb24-6"><a href="two-dependent-means.html#cb24-6" tabindex="-1"></a>  <span class="fu">barplot</span>(mean <span class="sc">~</span> InfoType, DF_Means)</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/Dependent-t-test-Plots-2.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="two-dependent-means.html#cb25-1" tabindex="-1"></a>  <span class="co"># hist(fieldWide$zThreat)</span></span>
+<span id="cb25-2"><a href="two-dependent-means.html#cb25-2" tabindex="-1"></a>  <span class="co"># hist(fieldWide$zPos)</span></span>
+<span id="cb25-3"><a href="two-dependent-means.html#cb25-3" tabindex="-1"></a>  <span class="co"># hist(fieldWide$zNone)</span></span></code></pre></div>
+<p>A valuable plot to see the distributional properties of the data is the histogram or the density plot, e.g.:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="two-dependent-means.html#cb26-1" tabindex="-1"></a>    <span class="fu">ggplot</span>(fieldLong, <span class="fu">aes</span>(<span class="at">x =</span> value, <span class="at">y =</span> InfoType)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="two-dependent-means.html#cb26-2" tabindex="-1"></a>    <span class="fu">geom_density_ridges</span>(<span class="fu">aes</span>(<span class="at">fill =</span> InfoType)) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="two-dependent-means.html#cb26-3" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb26-4"><a href="two-dependent-means.html#cb26-4" tabindex="-1"></a>      <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="03-Robust-Samples_files/figure-html/Dependent-Distribution-1.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="standard-t-test-1" class="section level2 unnumbered hasAnchor">
+<h2>Standard t-Test<a href="two-dependent-means.html#standard-t-test-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Calculate the standard parametric t-Test for repeatet measure designs and discuss the results.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="two-dependent-means.html#cb27-1" tabindex="-1"></a>  <span class="fu">pander</span>(<span class="fu">t.test</span>(fieldWide<span class="sc">$</span>zThreat, fieldWide<span class="sc">$</span>zNone, <span class="at">paired =</span> T), <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<table>
+<caption>Paired t-test: <code>fieldWide$zThreat</code> and <code>fieldWide$zNone</code></caption>
+<colgroup>
+<col width="21%" />
+<col width="6%" />
+<col width="18%" />
+<col width="31%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Test statistic</th>
+<th align="center">df</th>
+<th align="center">P value</th>
+<th align="center">Alternative hypothesis</th>
+<th align="center">mean difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">2.87</td>
+<td align="center">42</td>
+<td align="center">0.006405 * *</td>
+<td align="center">two.sided</td>
+<td align="center">0.492</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="robust-t-test-1" class="section level2 unnumbered hasAnchor">
+<h2>Robust t-Test<a href="two-dependent-means.html#robust-t-test-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Next we will look at the Yuen’s modified t-Test for trimmed means <span class="citation">(<a href="#ref-Yuen.1974">Yuen 1974</a>)</span>. For an extented version with bootstrapping refer to <span class="citation">(<a href="#ref-Keselman.2004">Keselman 2004</a>)</span></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="two-dependent-means.html#cb28-1" tabindex="-1"></a>  <span class="fu">pander</span>(<span class="fu">yuend</span>(fieldWide<span class="sc">$</span>zThreat, fieldWide<span class="sc">$</span>zNone, <span class="at">tr =</span> <span class="fl">0.2</span>), <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<ul>
+<li><strong>test</strong>: <em>2.528</em></li>
+<li><strong>conf.int</strong>: <em>0.0756</em> and <em>0.7335</em></li>
+<li><strong>se</strong>: <em>0.16</em></li>
+<li><strong>p.value</strong>: <em>0.01789</em></li>
+<li><strong>df</strong>: <em>26</em></li>
+<li><strong>diff</strong>: <em>0.4046</em></li>
+<li><strong>effsize</strong>: <em>0.3321</em></li>
+<li><strong>call</strong>: <code>yuend(x = fieldWide$zThreat, y = fieldWide$zNone, tr = 0.2)</code></li>
+</ul>
+<!-- end of list -->
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="two-dependent-means.html#cb29-1" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb29-2"><a href="two-dependent-means.html#cb29-2" tabindex="-1"></a>  <span class="fu">pander</span>(<span class="fu">Dqcomhd</span>(fieldWide<span class="sc">$</span>zThreat, fieldWide<span class="sc">$</span>zNone, <span class="at">nboot =</span> <span class="dv">200</span>, <span class="at">q =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)),  <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<ul>
+<li><p><strong>partable</strong>:</p>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="5%" />
+<col width="5%" />
+<col width="11%" />
+<col width="11%" />
+<col width="14%" />
+<col width="11%" />
+<col width="10%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">q</th>
+<th align="center">n1</th>
+<th align="center">n2</th>
+<th align="center">est1</th>
+<th align="center">est2</th>
+<th align="center">est1-est.2</th>
+<th align="center">ci.low</th>
+<th align="center">ci.up</th>
+<th align="center">p.crit</th>
+<th align="center">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0.25</td>
+<td align="center">43</td>
+<td align="center">43</td>
+<td align="center">-0.4243</td>
+<td align="center">-0.7578</td>
+<td align="center">0.3335</td>
+<td align="center">0.01017</td>
+<td align="center">0.6655</td>
+<td align="center">0.05</td>
+<td align="center">0.03</td>
+</tr>
+<tr class="even">
+<td align="center">0.5</td>
+<td align="center">43</td>
+<td align="center">43</td>
+<td align="center">0.1021</td>
+<td align="center">-0.2668</td>
+<td align="center">0.3688</td>
+<td align="center">0.07493</td>
+<td align="center">0.685</td>
+<td align="center">0.01667</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">0.75</td>
+<td align="center">43</td>
+<td align="center">43</td>
+<td align="center">0.8274</td>
+<td align="center">0.2319</td>
+<td align="center">0.5956</td>
+<td align="center">0.1083</td>
+<td align="center">1.198</td>
+<td align="center">0.025</td>
+<td align="center">0.03</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>call</strong>: <code>Dqcomhd(x = fieldWide$zThreat, y = fieldWide$zNone, q = c(0.25,      0.5, 0.75), nboot = 200)</code></p></li>
+</ul>
+<!-- end of list -->
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="two-dependent-means.html#cb30-1" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb30-2"><a href="two-dependent-means.html#cb30-2" tabindex="-1"></a>  <span class="fu">pander</span>(<span class="fu">dep.effect</span>(fieldWide<span class="sc">$</span>zThreat, fieldWide<span class="sc">$</span>zNone))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="24%" />
+<col width="9%" />
+<col width="12%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">NULL</th>
+<th align="center">Est</th>
+<th align="center">S</th>
+<th align="center">M</th>
+<th align="center">L</th>
+<th align="center">ci.low</th>
+<th align="center">ci.up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>AKP</strong></td>
+<td align="center">0</td>
+<td align="center">0.3869</td>
+<td align="center">0.1</td>
+<td align="center">0.3</td>
+<td align="center">0.5</td>
+<td align="center">0.1349</td>
+<td align="center">0.7173</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>QS (median)</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.7209</td>
+<td align="center">0.54</td>
+<td align="center">0.62</td>
+<td align="center">0.69</td>
+<td align="center">0.5116</td>
+<td align="center">0.814</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>QStr</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.6977</td>
+<td align="center">0.54</td>
+<td align="center">0.62</td>
+<td align="center">0.69</td>
+<td align="center">0.5349</td>
+<td align="center">0.7907</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>SIGN</strong></td>
+<td align="center">0.5</td>
+<td align="center">0.3256</td>
+<td align="center">0.46</td>
+<td align="center">0.38</td>
+<td align="center">0.31</td>
+<td align="center">0.192</td>
+<td align="center">0.476</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="two-dependent-means.html#cb31-1" tabindex="-1"></a>  <span class="do">###############################################</span></span></code></pre></div>
+<p>Both tests yield significant differences. Note that trimming reduces:</p>
+<ol style="list-style-type: decimal">
+<li>the mean difference from 0.49 to 0.40, and</li>
+<li>the test statistic is smaller in the robust version.</li>
+</ol>
+<p>We could report the robust test as a significant difference between trimmed mean approach times to the threat and control animals, <span class="math inline">\(M_{diff} = 0.40 \ [0.08, 0.74], \ Y_t (26) = 2.53, p = 0.018\)</span>.</p>
+</div>
+</div>
+<h3>Referenzen<a href="referenzen.html#referenzen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-FieldLawson.2003" class="csl-entry">
+Field, &amp; Lawson, A. P. 2003. <span>“Fear Information and the Development of Fears During Childhood: Effects on Implicit Fear Responses and Behavioural Avoidance.”</span> <em>Behaviour Research and Therapy, 41(11), 1277-1293</em>. <a href="https://doi.org/10.1016/s0005-7967(03)00034-2">https://doi.org/10.1016/s0005-7967(03)00034-2</a>.
+</div>
+<div id="ref-Keselman.2004" class="csl-entry">
+Keselman, H. J. 2004. <span>“The New and Improved Two-Sample t Test.”</span> <em>American Psychological Society, 15(1), 47-51</em>. <a href="https://doi.org/10.1111/j.0963-7214.2004.01501008.x">https://doi.org/10.1111/j.0963-7214.2004.01501008.x</a>.
+</div>
+<div id="ref-Yuen.1974" class="csl-entry">
+Yuen, K. K. 1974. <span>“2-Sample Trimmed t for Unequal Population Variances.”</span> <em>Biometrika, 61(1), 165-170</em>. https://doi.org/<a href="http://dx.doi.org/10.1093/biomet/61.1.165">http://dx.doi.org/10.1093/biomet/61.1.165</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="one-way-anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="one-way-rm-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
