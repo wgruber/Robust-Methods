@@ -72,20 +72,20 @@ Before looking into different problems with normality we shall have a closer loo
 Before we dig into some details let us illustrate the effects of slight depatures form normality. Suppose we sample (an arbitrary variable) from the population of all adults. Within this sample about 10% are of age 70 and over. Let us assume, that the people younger than 70 have a mean $\bar{x}_Y = 0$ and a standard deviation of $sd_Y = 1$. The older people also show a mean of $\bar{x}_O = 0$, but there standard deviation is much higher, e.g. $sd_O = 10$. The following graph shows the standard normal distribution (*black*) vs. the mixed distribution of our example (<span style="color:blue">*blue*</span>). Again, only 10% of the data for this distribution has a different variance (<span style="color:red">*red*</span>). Do you think these distributions can be considered identical, or at least both of them are normally distributed?
 
 <center>
-![The black curve shows the standard normal distrubution ($N(0,1)$). The blue curve shows a small sample (10% of the sample size) with $N(0,10)$. The red curve shows the mixed (contaminated) normal distribution. Note the slight difference in the tails of the distribution. The mixed distribution is *heavy tailed*.](Images/Wilcox-2-Contaminated-Full-Plot.jpg){ width=50% }
+![Comparison of different normal distributions](Images/Wilcox-2-Contaminated-Full-Plot.jpg){ width=50% }
 </center>
 
 If we observe such results on representative samples, we could assume, that the entire population has a *mixed*, or *contaminated distribution* with $\varepsilon = 0.1$ and $\lambda = 10$. So, in a formal way we would define two independent distributions ($X, Y$) with different standard deviations and different sample sizes which are mixed in a distribution $H$ with the variance of $Var(H)$, such that:
 
-$$\begin{array}{l}
-  X            &\approx N(\mu = 0, sd = 1) \\
-  Y            &\approx N(\mu = 0, sd = \lambda) = N(\mu = 0, sd = 10) \\
-  H            &= (1-\varepsilon) \cdot X + \varepsilon \cdot (x)  = 0.9 \cdot X + 0.1 \cdot Y\\
-  \overline{H} &= E(H) = 0 \\
-  Var(H)       &= E(H^2) \\
-  E(H^2)       & = E(0.9 \cdot X^2 + 0.1 \cdot Y^2 + 2 \cdot X \cdot Y \cdot 0.9 \cdot 0.1) \\
-               &=  0.9 \cdot \underbrace{E(X^2)}_{=1^2} + 0.1 \cdot \underbrace{E(Y^2)}_{=10^2} + 2 \cdot 0.9 \cdot 0.1 \cdot \underbrace{E(X \cdot Y)}_{\text{= Cov(X,Y)=0}} \\
-               &=  0.9 \cdot 1 + 0.1 \cdot 100 = 10.9
+$$\begin{array}{ccc}
+  X            & \approx & N(\mu = 0, sd = 1) \\
+  Y            & \approx & N(\mu = 0, sd = \lambda) = N(\mu = 0, sd = 10) \\
+  H            & = & (1-\varepsilon) \cdot X + \varepsilon \cdot (x)  = 0.9 \cdot X + 0.1 \cdot Y\\
+  \overline{H} & = & E(H) = 0 \\
+  Var(H)       & = & E(H^2) \\
+  E(H^2)       & = & E(0.9 \cdot X^2 + 0.1 \cdot Y^2 + 2 \cdot X \cdot Y \cdot 0.9 \cdot 0.1) \\
+               & = &  0.9 \cdot \underbrace{E(X^2)}_{=1^2} + 0.1 \cdot \underbrace{E(Y^2)}_{=10^2} + 2 \cdot 0.9 \cdot 0.1 \cdot \underbrace{E(X \cdot Y)}_{\text{= Cov(X,Y)=0}} \\
+               & = &  0.9 \cdot 1 + 0.1 \cdot 100 = 10.9
 \end{array}$$
 
 If we look at the distribution plots, we notice that both (standard normal and contaminated normal) both look very similar. We could conclude, that the contaminated normal is approximating the standard normal distribution to such extent, that we can assume it is also a normal distribution.
@@ -211,7 +211,7 @@ If the model fits well, we might also expect that very extreme over-, or underes
 
 The $p$-values associated with the parameter estimates of the model are based on the assumption that the test statistic associated with them follows a normal distribution (or some variant of it such as the $t$-distribution).
 
-Essentially, to test the hypothesis that the parameter estimate ($\bar{x}, r, \hat{b}_k$, etc.) is not equal to 0 (= $H_0$) it is necessary to assume a particular shape for the null distribution of the test statistic (i.e., normal).
+Essentially, to test the hypothesis that the parameter estimate ($\bar{x}, r, \hat{b}_k$, etc.) is not equal to 0 (= $H_1$) it is necessary to assume a particular shape for the null distribution of the test statistic (i.e., normal).
 
 If the sampling distribution of the test statistic turns out not to be the assumed shape (i.e. normal) then the resulting $p$-values will be incorrect.
 

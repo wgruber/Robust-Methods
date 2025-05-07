@@ -200,7 +200,7 @@ Table: Yuen Two Sample t-test: `z` by `Intervention` (continued below)
 
 
   * **test**: _6.071_
-  * **conf.int**: _0.9197_ and _1.869_
+  * **conf.int**: _0.8813_ and _1.908_
   * **p.value**: _0_
   * **df**: _NA_
   * **diff**: _1.395_
@@ -282,8 +282,8 @@ The functions `t1waybt()` and `mcppb20()` take a similar form to `yuenbt()`:
 
   * **test**: _19.9_
   * **p.value**: _0_
-  * **Var.Explained**: _0.6592_
-  * **Effect.Size**: _0.8119_
+  * **Var.Explained**: _0.6583_
+  * **Effect.Size**: _0.8114_
   * **nboot.eff**: _599_
   * **call**: `t1waybt(formula = z ~ Intervention, data = fbqOnly, tr = 0.2,      nboot = 599)`
 
@@ -302,15 +302,15 @@ For the follow-up tests we will use the `mcppb20()` function.
 
   * **comp**:
 
-    --------------------------------------------------------
+    ---------------------------------------------------------
      Group   Group   psihat   ci.lower   ci.upper   p-value
-    ------- ------- -------- ---------- ---------- ---------
-       1       2     0.3825   0.06236     0.7359       0
+    ------- ------- -------- ---------- ---------- ----------
+       1       2     0.3825   0.06236      0.74     0.003339
 
-       1       3     1.395     0.8521     1.859        0
+       1       3     1.395     0.861      1.822        0
 
-       2       3     1.012     0.4973     1.558        0
-    --------------------------------------------------------
+       2       3     1.012     0.4465     1.483        0
+    ---------------------------------------------------------
 
   * **fnames**: _Positive Information_, _Non-Anxious Modelling_ and _No Intervention_
   * **call**: `mcppb20(formula = z ~ Intervention, data = fbqOnly, tr = 0.2,      nboot = 599)`
